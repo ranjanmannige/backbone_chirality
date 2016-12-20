@@ -1,0 +1,282 @@
+\begin{thebibliography}{43}
+\providecommand{\natexlab}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Adzhubei and Sternberg(1993)}]{Adzhubei1993}
+\textbf{Adzhubei AA, Sternberg MJ}. \textbf{1993}.
+\newblock Left-handed polyproline ii helices commonly occur in globular
+  proteins.
+\newblock \emph{Journal of molecular biology} \textbf{229(2)}:472--493.
+
+\bibitem[{Alberts \emph{et~al.}(2002)Alberts, Johnson, Lewis, Raff, Roberts,
+  and Walter}]{Alberts2002}
+\textbf{Alberts B, Johnson A, Lewis J, Raff M, Roberts K, Walter P}.
+  \textbf{2002}.
+\newblock Molecular biology of the cell. new york: Garland science; 2002.
+\newblock \emph{Classic textbook now in its 5th Edition} .
+
+\bibitem[{Beke \emph{et~al.}(2006)Beke, Somlai, and Perczel}]{Beke2006}
+\textbf{Beke T, Somlai C, Perczel A}. \textbf{2006}.
+\newblock Toward a rational design of beta-peptide structures.
+\newblock \emph{J Comput Chem} \textbf{27(1)}:20--38.
+\newblock \doi{10.1002/jcc.20299}.
+
+\bibitem[{Berg \emph{et~al.}(2010)Berg, Tymoczko, and Stryer}]{Berg2006}
+\textbf{Berg JM, Tymoczko JL, Stryer L}. \textbf{2010}.
+\newblock \emph{Biochemistry, International Edition}.
+\newblock WH Freeman \& Co., New York, 7 edition.
+
+\bibitem[{Berman \emph{et~al.}(2000)Berman, Westbrook, Feng, Gilliland, Bhat,
+  Weissig, Shindyalov, and Bourne}]{Berman2000}
+\textbf{Berman HM, Westbrook J, Feng Z, Gilliland G, Bhat T, Weissig H,
+  Shindyalov IN, Bourne PE}. \textbf{2000}.
+\newblock The protein data bank.
+\newblock \emph{Nucleic acids research} \textbf{28(1)}:235--242.
+
+\bibitem[{Branden \emph{et~al.}(1999)}]{Branden1999}
+\textbf{Branden CI,} \emph{et~al.} \textbf{1999}.
+\newblock \emph{Introduction to protein structure}.
+\newblock Garland Science.
+
+\bibitem[{Chebrek \emph{et~al.}(2014)Chebrek, Leonard, de~Brevern, and
+  Gelly}]{Chebrek2014}
+\textbf{Chebrek R, Leonard S, de~Brevern AG, Gelly JC}. \textbf{2014}.
+\newblock Polypronline: polyproline helix ii and secondary structure assignment
+  database.
+\newblock \emph{Database} \textbf{2014}:bau102.
+
+\bibitem[{Chothia \emph{et~al.}(1977)Chothia, Levitt, and
+  Richardson}]{Chothia1977}
+\textbf{Chothia C, Levitt M, Richardson D}. \textbf{1977}.
+\newblock Structure of proteins: packing of alpha-helices and pleated sheets.
+\newblock \emph{Proceedings of the National Academy of Sciences}
+  \textbf{74(10)}:4130--4134.
+
+\bibitem[{Cintas(2002)}]{Cintas2002}
+\textbf{Cintas P}. \textbf{2002}.
+\newblock Chirality of living systems: a helping hand from crystals and
+  oligopeptides.
+\newblock \emph{Angewandte Chemie International Edition}
+  \textbf{41(7)}:1139--1145.
+
+\bibitem[{Cock \emph{et~al.}(2009)Cock, Antao, Chang, Chapman, Cox, Dalke,
+  Friedberg, Hamelryck, Kauff, Wilczynski, and de~Hoon}]{Cock2009}
+\textbf{Cock P, Antao T, Chang J, Chapman B, Cox C, Dalke A, Friedberg I,
+  Hamelryck T, Kauff F, Wilczynski B, de~Hoon M}. \textbf{2009}.
+\newblock Biopython: freely available python tools for computational molecular
+  biology and bioinformatics.
+\newblock \emph{Bioinformatics} \textbf{25(11)}:1422--1423.
+
+\bibitem[{Cross and Klyne(2013)}]{Cross2013}
+\textbf{Cross L, Klyne W}. \textbf{2013}.
+\newblock \emph{Rules for the Nomenclature of Organic Chemistry: Section E:
+  Stereochemistry (Recommendations 1974)}.
+\newblock Elsevier.
+
+\bibitem[{Culf and Ouellette(2010)}]{Culf2010}
+\textbf{Culf AS, Ouellette RJ}. \textbf{2010}.
+\newblock Solid-phase synthesis of n-substituted glycine oligomers
+  ($\alpha$-peptoids) and derivatives.
+\newblock \emph{Molecules} \textbf{15(8)}:5282--5335.
+
+\bibitem[{Dubois \emph{et~al.}(1996)Dubois, Hinsen, and Hugunin}]{Dubois1996}
+\textbf{Dubois PF, Hinsen K, Hugunin J}. \textbf{1996}.
+\newblock Numerical python.
+\newblock \emph{Computers in Physics} \textbf{10(3)}.
+
+\bibitem[{Fox \emph{et~al.}(2014)Fox, Brenner, and Chandonia}]{Fox2014}
+\textbf{Fox NK, Brenner SE, Chandonia JM}. \textbf{2014}.
+\newblock Scope: Structural classification of proteins--extended, integrating
+  scop and astral data and classification of new structures.
+\newblock \emph{Nucleic Acids Res} \textbf{42(Database issue)}:D304--D309.
+\newblock \doi{10.1093/nar/gkt1240}.
+
+\bibitem[{Goodman \emph{et~al.}(2007)Goodman, Choi, Shandler, and
+  DeGrado}]{Goodman2007}
+\textbf{Goodman CM, Choi S, Shandler S, DeGrado WF}. \textbf{2007}.
+\newblock Foldamers as versatile frameworks for the design and evolution of
+  function.
+\newblock \emph{Nature chemical biology} \textbf{3(5)}:252--262.
+
+\bibitem[{Gorske \emph{et~al.}(2016)Gorske, Mumford, and Conry}]{Gorske2016}
+\textbf{Gorske BC, Mumford EM, Conry RR}. \textbf{2016}.
+\newblock Tandem incorporation of enantiomeric residues engenders discrete
+  peptoid structures.
+\newblock \emph{Organic letters} .
+
+\bibitem[{Gruziel \emph{et~al.}(2013)Gruziel, Dzwolak, and
+  Szymczak}]{Gruziel2013}
+\textbf{Gruziel M, Dzwolak W, Szymczak P}. \textbf{2013}.
+\newblock Chirality inversions in self-assembly of fibrillar superstructures: a
+  computational study.
+\newblock \emph{Soft Matter} \textbf{9(33)}:8005--8013.
+
+\bibitem[{Hooft \emph{et~al.}(1997)Hooft, Sander, and Vriend}]{Hooft1997}
+\textbf{Hooft RW, Sander C, Vriend G}. \textbf{1997}.
+\newblock Objectively judging the quality of a protein structure from a
+  ramachandran plot.
+\newblock \emph{Computer applications in the biosciences: CABIOS}
+  \textbf{13(4)}:425--430.
+
+\bibitem[{Hung \emph{et~al.}(1998)Hung, Kohmura, Ariyoshi, and Kim}]{Hung1998}
+\textbf{Hung LW, Kohmura M, Ariyoshi Y, Kim SH}. \textbf{1998}.
+\newblock Structure of an enantiomeric protein, d-monellin at 1.8 {\aa}
+  resolution.
+\newblock \emph{Acta Crystallographica Section D: Biological Crystallography}
+  \textbf{54(4)}:494--500.
+
+\bibitem[{Joosten \emph{et~al.}(2011)Joosten, {te Beek}, Krieger, Hekkelman,
+  Hooft, Schneider, Sander, and Vriend}]{Joosten2011}
+\textbf{Joosten RP, {te Beek} TAH, Krieger E, Hekkelman ML, Hooft RWW,
+  Schneider R, Sander C, Vriend G}. \textbf{2011}.
+\newblock A series of pdb related databases for everyday needs.
+\newblock \emph{Nucleic Acids Res} \textbf{39(Database issue)}:D411--D419.
+\newblock \doi{10.1093/nar/gkq1105}.
+
+\bibitem[{Kabsch and Sander(1983)}]{Kabsch1983}
+\textbf{Kabsch W, Sander C}. \textbf{1983}.
+\newblock Dictionary of protein secondary structure: pattern recognition of
+  hydrogen-bonded and geometrical features.
+\newblock \emph{Biopolymers} \textbf{22(12)}:2577--2637.
+\newblock \doi{10.1002/bip.360221211}.
+
+\bibitem[{Kwieci{\'n}ska and Cieplak(2005)}]{Kwiecinska2005}
+\textbf{Kwieci{\'n}ska JI, Cieplak M}. \textbf{2005}.
+\newblock Chirality and protein folding.
+\newblock \emph{Journal of Physics: Condensed Matter} \textbf{17(18)}:S1565.
+
+\bibitem[{Laskowski(2003)}]{Laskowski2003}
+\textbf{Laskowski RA}. \textbf{2003}.
+\newblock Structural quality assurance.
+\newblock \emph{Structural Bioinformatics, Volume 44} pages 273--303.
+
+\bibitem[{Laskowski \emph{et~al.}(1993)Laskowski, MacArthur, Moss, and
+  Thornton}]{Laskowski1993}
+\textbf{Laskowski RA, MacArthur MW, Moss DS, Thornton JM}. \textbf{1993}.
+\newblock Procheck: a program to check the stereochemical quality of protein
+  structures.
+\newblock \emph{Journal of applied crystallography} \textbf{26(2)}:283--291.
+
+\bibitem[{Liddell \emph{et~al.}(1894)Liddell, Scott, and Drisler}]{Liddell1894}
+\textbf{Liddell HG, Scott R, Drisler H}. \textbf{1894}.
+\newblock \emph{A greek-english lexicon}.
+\newblock Harper \& brothers.
+
+\bibitem[{Mannige(2014)}]{Mannige2014b}
+\textbf{Mannige RV}. \textbf{2014}.
+\newblock Dynamic new world: Refining our view of protein structure, function
+  and evolution.
+\newblock \emph{Proteomes} \textbf{2(1)}:128--153.
+
+\bibitem[{Mannige \emph{et~al.}(2015)Mannige, Haxton, Proulx, Robertson,
+  Battigelli, Butterfoss, Zuckermann, and Whitelam}]{Mannige2015}
+\textbf{Mannige RV, Haxton TK, Proulx C, Robertson EJ, Battigelli A, Butterfoss
+  GL, Zuckermann RN, Whitelam S}. \textbf{2015}.
+\newblock Peptoid nanosheets exhibit a new secondary structure motif.
+\newblock \emph{Nature} \textbf{526}:415--420.
+
+\bibitem[{Mannige \emph{et~al.}(2016)Mannige, Kundu, and
+  Whitelam}]{MannigeKunduWhitelam2016}
+\textbf{Mannige RV, Kundu J, Whitelam S}. \textbf{2016}.
+\newblock The {R}amachandran number: an order parameter for protein geometry.
+\newblock \emph{PLoS One} \textbf{11(8)}:e0160023.
+
+\bibitem[{Matthew \emph{et~al.}(2013)Matthew, Sydykova, Meyer, and
+  Wilke}]{Matthew2013}
+\textbf{Matthew Z, Sydykova D, Meyer A, Wilke C}. \textbf{2013}.
+\newblock Peptidebuilder: A simple python library to generate model peptides.
+\newblock \emph{PeerJ} \textbf{1}:e80.
+
+\bibitem[{Pauling and Corey(1951{\natexlab{a}})}]{Pauling1951b}
+\textbf{Pauling L, Corey RB}. \textbf{1951}{\natexlab{a}}.
+\newblock Configurations of polypeptide chains with favored orientations around
+  single bonds: two new pleated sheets.
+\newblock \emph{Proceedings of the National Academy of Sciences of the United
+  States of America} \textbf{37(11)}:729.
+
+\bibitem[{Pauling and Corey(1951{\natexlab{b}})}]{Pauling1951a}
+\textbf{Pauling L, Corey RB}. \textbf{1951}{\natexlab{b}}.
+\newblock The pleated sheet, a new layer configuration of polypeptide chains.
+\newblock \emph{Proceedings of the National Academy of Sciences of the United
+  States of America} \textbf{37(5)}:251.
+
+\bibitem[{Pauling \emph{et~al.}(1951)Pauling, Corey, and Branson}]{Pauling1951}
+\textbf{Pauling L, Corey RB, Branson HR}. \textbf{1951}.
+\newblock The structure of proteins: two hydrogen-bonded helical configurations
+  of the polypeptide chain.
+\newblock \emph{Proceedings of the National Academy of Sciences}
+  \textbf{37(4)}:205--211.
+
+\bibitem[{Pohl \emph{et~al.}(2012)Pohl, Beke-Somfai, Csizmadia, and
+  Perczel}]{Pohl2012}
+\textbf{Pohl G, Beke-Somfai T, Csizmadia IG, Perczel A}. \textbf{2012}.
+\newblock Exploiting diverse stereochemistry of $\beta$-amino acids: toward a
+  rational design of sheet-forming $\beta$-peptide systems.
+\newblock \emph{Amino Acids} \textbf{43(2)}:735--749.
+\newblock \doi{10.1007/s00726-011-1124-7}.
+
+\bibitem[{Quiocho \emph{et~al.}(1977)Quiocho, Gilliland, and
+  Phillips}]{Quiocho1977}
+\textbf{Quiocho FA, Gilliland GL, Phillips G}. \textbf{1977}.
+\newblock The 2.8-a resolution structure of the l-arabinose-binding protein
+  from escherichia coli. polypeptide chain folding, domain similarity, and
+  probable location of sugar-binding site.
+\newblock \emph{Journal of Biological Chemistry} \textbf{252(14)}:5142--5149.
+
+\bibitem[{Ramachandran \emph{et~al.}(1963)Ramachandran, Ramakrishnan, and
+  Sasisekharan}]{Ramachandran1963}
+\textbf{Ramachandran G, Ramakrishnan C, Sasisekharan V}. \textbf{1963}.
+\newblock Stereochemistry of polypeptide chain configurations.
+\newblock \emph{Journal of molecular biology} \textbf{7(1)}:95--99.
+
+\bibitem[{Robertson \emph{et~al.}(2016)Robertson, Battigelli, Proulx, Mannige,
+  Haxton, Yun, Whitelam, and Zuckermann}]{Robertson2016}
+\textbf{Robertson EJ, Battigelli A, Proulx C, Mannige RV, Haxton TK, Yun L,
+  Whitelam S, Zuckermann RN}. \textbf{2016}.
+\newblock Design, synthesis, assembly, and engineering of peptoid nanosheets.
+\newblock \emph{Accounts of chemical research} \textbf{49(3)}:379--389.
+
+\bibitem[{Schulz \emph{et~al.}(1974)Schulz, Elzinga, Marx, and
+  Schirmer}]{Schulz1974}
+\textbf{Schulz G, Elzinga M, Marx F, Schirmer R}. \textbf{1974}.
+\newblock Three-dimensional structure of adenyl kinase.
+\newblock \emph{Nature} \textbf{250}:120--123.
+
+\bibitem[{Shaw and Muirhead(1977)}]{Shaw1977}
+\textbf{Shaw PJ, Muirhead H}. \textbf{1977}.
+\newblock Crystallographic structure analysis of glucose 6-phosphate isomerase
+  at 3{\textperiodcentered} 5 {\aa} resolution.
+\newblock \emph{Journal of molecular biology} \textbf{109(3)}:475--485.
+
+\bibitem[{Subramanian(2001)}]{Subramanian2001}
+\textbf{Subramanian E}. \textbf{2001}.
+\newblock Gn ramachandran.
+\newblock \emph{Nature Structural \& Molecular Biology} \textbf{8(6)}:489--491.
+
+\bibitem[{Sun and Zuckermann(2013)}]{Sun2013}
+\textbf{Sun J, Zuckermann RN}. \textbf{2013}.
+\newblock Peptoid polymers: a highly designable bioinspired material.
+\newblock \emph{ACS Nano} \textbf{7(6)}:4715--4732.
+\newblock \doi{10.1021/nn4015714}.
+
+\bibitem[{Zawadzke and Berg(1993)}]{Zawadzke1993}
+\textbf{Zawadzke LE, Berg JM}. \textbf{1993}.
+\newblock The structure of a centrosymmetric protein crystal.
+\newblock \emph{Proteins: Structure, Function, and Bioinformatics}
+  \textbf{16(3)}:301--305.
+
+\bibitem[{Zhao \emph{et~al.}(2005)Zhao, Schultz, and Truhlar}]{Zhao2005}
+\textbf{Zhao Y, Schultz NE, Truhlar D}. \textbf{2005}.
+\newblock Exchange-correlation functional with broad accuracy for metallic and
+  nonmetallic compounds, kinetics, and noncovalent interactions.
+\newblock \emph{The Journal of chemical physics} \textbf{123(16)}:161103.
+
+\bibitem[{Zuckermann and Kodadek(2009)}]{Zuckermann2009}
+\textbf{Zuckermann RN, Kodadek T}. \textbf{2009}.
+\newblock Peptoids as potential therapeutics.
+\newblock \emph{Curr Opin Mol Ther} \textbf{11(3)}:299--307.
+
+\end{thebibliography}

@@ -1,0 +1,5 @@
+**/*.pyc
+graphs/
+manuscript/figures/*.pdf
+pdbs/
+local_imports/
