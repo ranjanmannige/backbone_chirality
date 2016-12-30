@@ -18,36 +18,36 @@ sns.set_style('ticks') # *
 sns.set_context("talk", font_scale=1.5, rc={"lines.linewidth": 4})
 # -----------------------
 
-if 1: # FIG 1c drawing left (L) and right (D) versions of the Alpha-helix
-	N = 12
-	omega = 180.0
-	name_phi_psi = [('pdbs/alpha_d.pdb',-63, -43),('pdbs/alpha_l.pdb',63, 43)]
-	#TO CREATE POLYPROLINE II HELICES, ADD THE FOLLOWING TUPLES TO <name_phi_psi: 
-	# ('pdbs/ppII_d.pdb',75,-150),('pdbs/ppII_l.pdb',-75,150)
-	
-	for fn,phi,psi in name_phi_psi:
-		angles = []
-		for n in range(N):
-			angles.append((phi,psi,omega))
-		
-		st = locallib.build_structure(angles)
-		
-		basedir = os.path.dirname(fn)
-		if not os.path.isdir(basedir):
-			os.makedirs(basedir)
-		
-		import Bio.PDB # import Biopython's PDB module .
-		out = Bio.PDB.PDBIO()
-		out.set_structure(st[0])
-		pdbfn = fn
-		print 'writing to:',pdbfn
-		out.save(pdbfn)
-		# Fig 1c contains this pdbfn (and its mirror symmetric version)
-		# Rendering this VMD scene gets you Fig 1c
-		#os.system("vmd -e local_imports/draw_structure.vmd -args "+pdbfn)
-		
+def cos(a):
+	return np.cos(np.radians(a))
+def sin(a):
+	return np.sin(np.radians(a))
 
-if 1:
+if 0:# checking basic relationships for fun. Exits at the end of this block.
+	PHI = []
+	THETADEGREES = []
+	THETA = []
+	SINTHETA = []
+	SINTHETA2 = []
+	for i in range(-180,181):
+		chi, theta, d = locallib.calculate_handedness_from_theory(i,i,180)
+		PHI.append(i)
+		THETADEGREES.append(theta)
+		THETA.append(np.radians(theta))
+		SINTHETA.append(np.sin(np.radians(theta)))
+		SINTHETA2.append(theta-180.0)
+		
+	for X,Y,title in [[PHI,THETADEGREES,r"$\phi$ vs $\theta (^\circ)$"],
+			[PHI,SINTHETA,r"$\phi$ vs sin$(\theta)$"],
+			[PHI,SINTHETA2,r"$\theta$ vs $(\theta)-180$"]]:
+		plt.clf()
+		plt.plot(X,Y)
+		plt.title(title)
+		plt.show()
+	exit()
+
+
+if 0:
 	# Fig 2b
 	
 	# Slices through a trans Ramachandran plot (from the bottom left to the 
@@ -103,7 +103,9 @@ if 1:
 			
 			st = locallib.build_structure(angles)
 			
-			z = locallib.calculate_handedness1(st)
+			#z = locallib.calculate_handedness1(st)
+			chi, theta, d = locallib.calculate_handedness_from_theory(phi,psi,omega)
+			z = chi
 			
 			if counter > 1:
 				rmsd, st = locallib.calculate_rmsd(stOld,st)
@@ -161,6 +163,483 @@ if 1:
 		if omega == 180.0:
 			print "The file "+phi_to_chi_basefilename+".pdf is the graph in Fig 2b"
 			print ""
+
+if 1:
+	# Shows how the Ramachandran plot morphs as omega is tuned
+	sns.set_style('ticks') # *
+	
+	counter = 0
+	step = 10
+	for omega in [-180,-180+45,-90,-90+45,0]: #range(-180,181,5):#[180.0,0.0]:
+		plt.clf()
+		
+		X = []
+		Y = []
+		Z_chi   = []
+		Z_theta = []
+		Z_d     = []
+		phi_psi_to_chi   = {}
+		phi_psi_to_theta = {}
+		phi_psi_to_d = {}
+		for phi in range(-180,181,step):
+			for psi in range(-180,181,step):
+				
+				chi, theta, d = locallib.calculate_handedness_from_theory(phi,psi,omega)
+				
+				'''
+				# If we have an all-trans, then we can estimate theta and d more sussinctly:
+				theta =2. * np.arccos(-0.817 * np.sin(float(psi + phi)/ 2.) - 0.045 * np.sin(float(psi - phi)/2.))
+				d = float(2.967 * np.cos(float(psi + phi)/ 2.) - 0.664 * np.cos(float(psi - phi)/2.))/np.sin(theta/2.)
+				'''
+				
+				X.append(phi)
+				Y.append(psi)
+				Z_chi.append(chi)
+				Z_theta.append(theta)
+				Z_d.append(d)
+				
+				phi_psi_to_chi[(phi,psi)]   = chi
+				phi_psi_to_theta[(phi,psi)] = theta
+				phi_psi_to_d[(phi,psi)]     = d
+		
+		# ---------------------------------------------------------------
+		cis_or_trans = 'trans'
+		if omega == 0.0:
+			cis_or_trans = 'cis'
+		cis_or_trans = ''
+		
+		counter+=1
+		fn_base = './graphs/other_omegas/icon_'+str(omega)
+		
+		if not os.path.isdir(os.path.dirname(fn_base)):
+			os.makedirs(os.path.dirname(fn_base))
+		
+		anglerange = [(-180,180,step)]
+		for amin,amax,astep in anglerange:
+			
+			print "\trange:\t",(amin,amax)
+			newX = []
+			newY = []
+			newZd = []
+			newZtheta = []
+			newZchi = []
+			
+			output_fn = fn_base
+			if amin == -180 and amax == 180:
+				pass
+			else:
+				output_fn += "_range"+str(amin)+"-"+str(amax)
+			output_fn += "_step"+str(astep)
+			
+			for phi in np.arange(amin,amax+astep/2,astep):
+				if -180.0 <= phi and phi <= 180.0:
+					phi_bound = phi
+				else:
+					phi_bound = (phi+180.0) % 360.0 - 180.0
+				for psi in np.arange(amin,amax+astep/2,astep):
+					if -180.0 <= psi and psi <= 180.0:
+						psi_bound = psi
+					else:
+						psi_bound = (psi+180.0) % 360.0 -180.0
+					chi   = phi_psi_to_chi[(phi_bound,psi_bound)]
+					theta = phi_psi_to_theta[(phi_bound,psi_bound)]
+					d     = phi_psi_to_d[(phi_bound,psi_bound)]
+					
+					#chi, theta, d = locallib.calculate_handedness_from_theory(phi,psi,omega)
+					newX.append(phi)
+					newY.append(psi)
+					newZchi.append(chi)
+					newZtheta.append(theta)
+					newZd.append(d)
+			
+			
+			xticks = range(int(amin),int(amax)+1,180)
+			yticks = range(int(amin),int(amax)+1,180)
+			
+			plt.clf()
+			for x in xticks:
+				if x != amin and x != amax:
+					ls = 'solid'
+					if x % 360 == 0.0:
+						ls = 'dashed' #or 'dotted'
+					plt.plot([x, x], [amin, amax], c='k', ls=ls, lw=1)
+			for y in yticks:
+				if y != amin and y != amax:
+					ls = 'solid'
+					if y % 360 == 0.0:
+						ls = 'dashed' #or 'dotted'
+					plt.plot([amin, amax], [y, y], c='k', ls=ls, lw=1)
+			
+			xticks = range(int(amin),int(amax)+1,180)
+			yticks = range(int(amin),int(amax)+1,180)
+			
+			locallib.draw_ramachandran_lines(amin=amin,amax=amax)
+			
+			sns.set_style('ticks')
+			cmap = plt.get_cmap("chirality_r")
+			print output_fn
+			locallib.make2Dfigure(newX,newY,newZchi,fn=[output_fn+'_chi.eps'], #, output_fn+'_chi.eps'],
+					xscaling=1, cmap=cmap,title=r'$\omega$='+str(omega),
+					xtitle="$\phi$",ytitle="$\psi$", 
+					xticks=xticks, yticks=yticks,
+					xlim=[amin,amax],ylim=[amin,amax],show=0,start_fresh=1, colorbar=0,
+					zlim=[np.nanmin(newZchi),np.nanmax(newZchi)])
+	exit()
+
+if 1:
+	# Shows how the Ramachandran plot morphs as omega is tuned
+	sns.set_style('ticks') # *
+	
+	counter = 0
+	step = 10
+	for omega in range(-180,181,5):#[180.0,0.0]:
+		plt.clf()
+		
+		X = []
+		Y = []
+		Z_chi   = []
+		Z_theta = []
+		Z_d     = []
+		phi_psi_to_chi   = {}
+		phi_psi_to_theta = {}
+		phi_psi_to_d = {}
+		for phi in range(-180,181,step):
+			for psi in range(-180,181,step):
+				
+				chi, theta, d = locallib.calculate_handedness_from_theory(phi,psi,omega)
+				
+				'''
+				# If we have an all-trans, then we can estimate theta and d more sussinctly:
+				theta =2. * np.arccos(-0.817 * np.sin(float(psi + phi)/ 2.) - 0.045 * np.sin(float(psi - phi)/2.))
+				d = float(2.967 * np.cos(float(psi + phi)/ 2.) - 0.664 * np.cos(float(psi - phi)/2.))/np.sin(theta/2.)
+				'''
+				
+				X.append(phi)
+				Y.append(psi)
+				Z_chi.append(chi)
+				Z_theta.append(theta)
+				Z_d.append(d)
+				
+				phi_psi_to_chi[(phi,psi)]   = chi
+				phi_psi_to_theta[(phi,psi)] = theta
+				phi_psi_to_d[(phi,psi)]     = d
+		
+		# ---------------------------------------------------------------
+		cis_or_trans = 'trans'
+		if omega == 0.0:
+			cis_or_trans = 'cis'
+		cis_or_trans = ''
+		
+		counter+=1
+		fn_base  = './graphs/anim/anim_omega'
+		fn_base += '{0:0>6}'.format(counter)
+		
+		if not os.path.isdir(os.path.dirname(fn_base)):
+			os.makedirs(os.path.dirname(fn_base))
+		
+		anglerange = [(-180,180,step)]
+		for amin,amax,astep in anglerange:
+			
+			print "\trange:\t",(amin,amax)
+			newX = []
+			newY = []
+			newZd = []
+			newZtheta = []
+			newZchi = []
+			
+			output_fn = fn_base
+			if amin == -180 and amax == 180:
+				pass
+			else:
+				output_fn += "_range"+str(amin)+"-"+str(amax)
+			output_fn += "_step"+str(astep)
+			
+			for phi in np.arange(amin,amax+astep/2,astep):
+				if -180.0 <= phi and phi <= 180.0:
+					phi_bound = phi
+				else:
+					phi_bound = (phi+180.0) % 360.0 - 180.0
+				for psi in np.arange(amin,amax+astep/2,astep):
+					if -180.0 <= psi and psi <= 180.0:
+						psi_bound = psi
+					else:
+						psi_bound = (psi+180.0) % 360.0 -180.0
+					chi   = phi_psi_to_chi[(phi_bound,psi_bound)]
+					theta = phi_psi_to_theta[(phi_bound,psi_bound)]
+					d     = phi_psi_to_d[(phi_bound,psi_bound)]
+					
+					#chi, theta, d = locallib.calculate_handedness_from_theory(phi,psi,omega)
+					newX.append(phi)
+					newY.append(psi)
+					newZchi.append(chi)
+					newZtheta.append(theta)
+					newZd.append(d)
+			
+			
+			xticks = range(int(amin),int(amax)+1,180)
+			yticks = range(int(amin),int(amax)+1,180)
+			
+			plt.clf()
+			for x in xticks:
+				if x != amin and x != amax:
+					ls = 'solid'
+					if x % 360 == 0.0:
+						ls = 'dashed' #or 'dotted'
+					plt.plot([x, x], [amin, amax], c='k', ls=ls, lw=1)
+			for y in yticks:
+				if y != amin and y != amax:
+					ls = 'solid'
+					if y % 360 == 0.0:
+						ls = 'dashed' #or 'dotted'
+					plt.plot([amin, amax], [y, y], c='k', ls=ls, lw=1)
+			
+			xticks = range(int(amin),int(amax)+1,180)
+			yticks = range(int(amin),int(amax)+1,180)
+			
+			locallib.draw_ramachandran_lines(amin=amin,amax=amax)
+			
+			sns.set_style('ticks')
+			cmap = plt.get_cmap("chirality_r")
+			print output_fn
+			locallib.make2Dfigure(newX,newY,newZchi,fn=[output_fn+'_chi.png'], #, output_fn+'_chi.eps'],
+					xscaling=1, cmap=cmap,title=r'$\omega$='+str(omega),
+					xtitle="$\phi$",ytitle="$\psi$", 
+					xticks=xticks, yticks=yticks,
+					xlim=[amin,amax],ylim=[amin,amax],show=0,start_fresh=1, colorbar=0,
+					zlim=[np.nanmin(newZchi),np.nanmax(newZchi)])
+	exit()
+
+if 1:
+	sns.set_style('ticks') # *
+	
+	for omega in [180.0,0.0]:
+		plt.clf()
+		
+		X = []
+		Y = []
+		Z_chi   = []
+		Z_theta = []
+		Z_d     = []
+		phi_psi_to_chi   = {}
+		phi_psi_to_theta = {}
+		phi_psi_to_d = {}
+		for phi in range(-180,181,1):
+			for psi in range(-180,181,1):
+				
+				chi, theta, d = locallib.calculate_handedness_from_theory(phi,psi,omega)
+				
+				'''
+				# If we have an all-trans, then we can estimate theta and d more sussinctly:
+				theta =2. * np.arccos(-0.817 * np.sin(float(psi + phi)/ 2.) - 0.045 * np.sin(float(psi - phi)/2.))
+				d = float(2.967 * np.cos(float(psi + phi)/ 2.) - 0.664 * np.cos(float(psi - phi)/2.))/np.sin(theta/2.)
+				'''
+				
+				X.append(phi)
+				Y.append(psi)
+				Z_chi.append(chi)
+				Z_theta.append(theta)
+				Z_d.append(d)
+				
+				phi_psi_to_chi[(phi,psi)]   = chi
+				phi_psi_to_theta[(phi,psi)] = theta
+				phi_psi_to_d[(phi,psi)]     = d
+		
+		# ---------------------------------------------------------------
+		cis_or_trans = 'trans'
+		if omega == 0.0:
+			cis_or_trans = 'cis'
+		cis_or_trans = ''
+		
+		fn_base = './graphs/chirality_from_theory_'+cis_or_trans
+		
+		#anglerange = [(-180,180,2),(-180,180,5),(0,360,2),(-180,360*2,5)]
+		anglerange = [(-180,180,2),(-180,180,5)]
+		anglerange = [(-180,180,5),(-180,180,2)]
+		anglerange = [(0,360,2)]
+		anglerange = [(-180,180,2),(-180,180,5),(0,360,2)]
+		
+		for amin,amax,astep in anglerange:
+			
+			print "\trange:\t",(amin,amax)
+			newX = []
+			newY = []
+			newZd = []
+			newZtheta = []
+			newZchi = []
+			
+			output_fn = fn_base
+			
+			for phi in np.arange(amin,amax+astep/2,astep):
+				'''
+				if -180.0 <= phi and phi <= 180.0:
+					phi_bound = phi
+				else:
+					phi_bound = (phi+180.0) % 360.0 - 180.0
+				'''
+				for psi in np.arange(amin,amax+astep/2,astep):
+					'''
+					if -180.0 <= psi and psi <= 180.0:
+						psi_bound = psi
+					else:
+						psi_bound = (psi+180.0) % 360.0 -180.0
+					chi   = phi_psi_to_chi[(phi_bound,psi_bound)]
+					theta = phi_psi_to_theta[(phi_bound,psi_bound)]
+					d     = phi_psi_to_d[(phi_bound,psi_bound)]
+					'''
+					chi, theta, d = locallib.calculate_handedness_from_theory(phi,psi,omega)
+					newX.append(phi)
+					newY.append(psi)
+					newZchi.append(chi)
+					newZtheta.append(theta)
+					newZd.append(d)
+			
+			xticks = range(int(amin),int(amax)+1,180)
+			yticks = range(int(amin),int(amax)+1,180)
+			
+			plt.clf()
+			for x in xticks:
+				if x != amin and x != amax:
+					ls = 'solid'
+					if x % 360 == 0.0:
+						ls = 'dashed' #or 'dotted'
+					plt.plot([x, x], [amin, amax], c='k', ls=ls, lw=1)
+			for y in yticks:
+				if y != amin and y != amax:
+					ls = 'solid'
+					if y % 360 == 0.0:
+						ls = 'dashed' #or 'dotted'
+					plt.plot([amin, amax], [y, y], c='k', ls=ls, lw=1)
+			
+			
+			xticks = range(int(amin),int(amax)+1,180)
+			yticks = range(int(amin),int(amax)+1,180)
+			
+			if amin == -180 and amax == 180:
+				if astep == 2:
+					print "Writing panel Fig 2a as '"+output_fn+".*'"
+				if astep == 5:
+					print "Writing panel Fig 3a as '"+output_fn+".*'"
+					
+					# also, we print the intermediate graphs
+					
+					locallib.draw_ramachandran_lines(amin=amin,amax=amax)
+					sns.set_style('ticks')
+					cmap = plt.get_cmap("chirality_r")
+					locallib.make2Dfigure(newX,newY,np.array(newZtheta)-180,
+							fn=[output_fn+'_theta.eps',output_fn+'_theta.png'],
+							xscaling=1, cmap=cmap,title=r'$\theta-180^\circ$',
+							xtitle="$\phi$",ytitle="$\psi$", 
+							xticks=xticks, yticks=yticks,
+							xlim=[amin,amax],ylim=[amin,amax],show=0,start_fresh=1, colorbar=1)#,zlim=[-1,1])
+				
+					locallib.draw_ramachandran_lines(amin=amin,amax=amax)
+					sns.set_style('ticks')
+					cmap = plt.get_cmap("chirality_r")
+					locallib.make2Dfigure(newX,newY,newZd,fn=[output_fn+'_d.eps',output_fn+'_d.png'],
+							xscaling=1, cmap=cmap,title='$d$',
+							xtitle="$\phi$",ytitle="$\psi$", 
+							xticks=xticks, yticks=yticks,
+							xlim=[amin,amax],ylim=[amin,amax],show=0,start_fresh=1, colorbar=1)#,zlim=[-1,1])
+			
+			locallib.draw_ramachandran_lines(amin=amin,amax=amax)
+			sns.set_style('ticks')
+			cmap = plt.get_cmap("chirality_r")
+			locallib.make2Dfigure(newX,newY,newZchi,fn=[output_fn+'_chi.eps',output_fn+'_chi.png'],
+					xscaling=1, cmap=cmap,title=r'$(d [\theta - 180^\circ]/(180^\circ|d|)$',
+					xtitle="$\phi$",ytitle="$\psi$", 
+					xticks=xticks, yticks=yticks,
+					xlim=[amin,amax],ylim=[amin,amax],show=0,start_fresh=1, colorbar=1,
+					zlim=[np.nanmin(newZchi),np.nanmax(newZchi)])
+	exit()
+
+if 1:
+	
+	#np.cos(theta/2.)   =-0.817 * np.sin(float(tau_12 + tau_31)/ 2.) - 0.045 * np.sin(float(tau_12 - tau_31)/2.)
+	#d*np.sin(theta/2.) = 2.967 * np.cos(float(tau_12 + tau_31)/ 2.) - 0.664 * np.cos(float(tau_12 - tau_31)/2.)
+	#i.e.,
+	
+	amin = -180
+	amax = 180
+	X = []
+	Y = []
+	Z1 = []
+	Z2 = []
+	Z3 = []
+	for phi in range(amin,amax+1,2):
+		for psi in range(amin,amax+1,2):
+			
+			theta =2. * np.arccos(-0.817 * np.sin(float(psi + phi)/ 2.) - 0.045 * np.sin(float(psi - phi)/2.))
+			d = float(2.967 * np.cos(float(psi + phi)/ 2.) - 0.664 * np.cos(float(psi - phi)/2.))/np.sin(theta/2.)
+			
+			theta = theta-np.pi
+			
+			X.append(phi)
+			Y.append(psi)
+			Z1.append(theta)
+			Z2.append(d)
+			Z3.append(-1.0*theta*d)
+			
+			
+	xticks = range(int(amin),int(amax)+1,180)
+	yticks = range(int(amin),int(amax)+1,180)
+	
+	locallib.draw_ramachandran_lines(amin=-180,amax=180)
+	sns.set_style('ticks')
+	cmap = plt.get_cmap("chirality_r")
+	locallib.make2Dfigure(X,Y,Z1,
+				xscaling=1, cmap=cmap,title=r'$\theta$',
+				xtitle="$\phi$",ytitle="$\psi$", 
+				xticks=xticks, yticks=yticks,
+				xlim=[amin,amax],ylim=[amin,amax],show=1,start_fresh=1, colorbar=1)#,zlim=[-1,1])
+	
+	locallib.draw_ramachandran_lines(amin=-180,amax=180)
+	sns.set_style('ticks')
+	cmap = plt.get_cmap("chirality_r")
+	locallib.make2Dfigure(X,Y,Z2,
+				xscaling=1, cmap=cmap,title='d',
+				xtitle="$\phi$",ytitle="$\psi$", 
+				xticks=xticks, yticks=yticks,
+				xlim=[amin,amax],ylim=[amin,amax],show=1,start_fresh=1, colorbar=1)#,zlim=[-1,1])
+	
+	locallib.draw_ramachandran_lines(amin=-180,amax=180)
+	sns.set_style('ticks')
+	cmap = plt.get_cmap("chirality_r")
+	locallib.make2Dfigure(X,Y,Z3,
+				xscaling=1, cmap=cmap,title=r'$-d*\theta$',
+				xtitle="$\phi$",ytitle="$\psi$", 
+				xticks=xticks, yticks=yticks,
+				xlim=[amin,amax],ylim=[amin,amax],show=1,start_fresh=1, colorbar=1)#,zlim=[-1,1])
+	
+	
+
+
+if 1: # FIG 1c drawing left (L) and right (D) versions of the Alpha-helix
+	N = 12
+	omega = 180.0
+	name_phi_psi = [('pdbs/alpha_d.pdb',-63, -43),('pdbs/alpha_l.pdb',63, 43)]
+	#TO CREATE POLYPROLINE II HELICES, ADD THE FOLLOWING TUPLES TO <name_phi_psi: 
+	# ('pdbs/ppII_d.pdb',75,-150),('pdbs/ppII_l.pdb',-75,150)
+	
+	for fn,phi,psi in name_phi_psi:
+		angles = []
+		for n in range(N):
+			angles.append((phi,psi,omega))
+		
+		st = locallib.build_structure(angles)
+		
+		basedir = os.path.dirname(fn)
+		if not os.path.isdir(basedir):
+			os.makedirs(basedir)
+		
+		import Bio.PDB # import Biopython's PDB module .
+		out = Bio.PDB.PDBIO()
+		out.set_structure(st[0])
+		pdbfn = fn
+		print 'writing to:',pdbfn
+		out.save(pdbfn)
+		# Fig 1c contains this pdbfn (and its mirror symmetric version)
+		# Rendering this VMD scene gets you Fig 1c
+		#os.system("vmd -e local_imports/draw_structure.vmd -args "+pdbfn)
 
 for omega in [180,0]:
 	sns.set_style('ticks') # *
@@ -276,7 +755,8 @@ for omega in [180,0]:
 		else:
 			title+= " (trans)"
 		
-		anglerange = [(-180,180,2),(-180,180,5),(0,360,2),(-180,360*2,5)]
+		#anglerange = [(-180,180,2),(-180,180,5),(0,360,2),(-180,360*2,5)]
+		anglerange = [(-180,180,2),(-180,180,5)]
 		#anglerange = [(0,360,5)]
 		
 		for amin,amax,astep in anglerange:
@@ -296,21 +776,29 @@ for omega in [180,0]:
 				
 			
 			for phi in np.arange(amin,amax+astep/2,astep):
-				phi_bound = -180.+(phi+180.) % 360.
+				if -180.0 <= phi and phi <= 180.0:
+					phi_bound = phi
+				else:
+					phi_bound = -180.+(phi+180.) % 360.
+				#
 				for psi in np.arange(amin,amax+astep/2,astep):
-					psi_bound = -180.+(psi+180.) % 360.
-					chi = phi_psi_to_chi[(psi_bound,phi_bound)]
+					if -180.0 <= psi and psi <= 180.0:
+						psi_bound = psi
+					else:
+						psi_bound = -180.+(psi+180.) % 360.
+					#
+					chi = phi_psi_to_chi[(phi_bound,psi_bound)]
 					newX.append(phi)
 					newY.append(psi)
 					newZ.append(chi)
 			
 			if amin == -180 and amax == 180:
 				if "chirality1" in output_fnbase:
-					print "Writing panel Fig 2a and Fig 3a as '"+output_fnbase+".*'"
-				if "chirality2" in output_fnbase:
 					print "Writing panel Fig 3b as '"+output_fnbase+".*'"
-				if "chirality3" in output_fnbase:
+				if "chirality2" in output_fnbase:
 					print "Writing panel Fig 3c as '"+output_fnbase+".*'"
+				#if "chirality3" in output_fnbase:
+				#	print "Writing panel Fig 3c as '"+output_fnbase+".*'"
 			
 			xticks = range(int(amin),int(amax)+1,180)
 			yticks = range(int(amin),int(amax)+1,180)

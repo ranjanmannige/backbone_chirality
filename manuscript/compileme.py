@@ -1,5 +1,5 @@
 import os
-fn = "ramachandran_communication"
+fn = "ramachandran_chirality"
 os.system("pdflatex "+fn)
 os.system("bibtex "+fn)
 os.system("pdflatex "+fn)
