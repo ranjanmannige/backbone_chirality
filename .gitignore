@@ -1,6 +1,6 @@
 **/*.pyc
 graphs/
-manuscript/figures/*.pdf
+manuscript/figures/*.svg
 pdbs/
 local_imports/
 manuscript/figures/*/
