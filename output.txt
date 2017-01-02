@@ -1,0 +1,2 @@
+
+Structures for Fig 4c:	pdbs/trans/*.pdb

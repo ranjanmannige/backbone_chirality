@@ -25,7 +25,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.5082866"
      inkscape:cx="1290.6107"
-     inkscape:cy="599.12852"
+     inkscape:cy="599.12853"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -472,28 +472,28 @@
        transform="matrix(0.99987925,-0.01553966,0.01553966,0.99987925,0,0)"
        sodipodi:linespacing="100%"
        id="text4893"
-       y="-137.42831"
-       x="-1864.4773"
-       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:100px;line-height:100%;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Medium';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       y="-131.75877"
+       x="-1864.5653"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:75px;line-height:100%;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Medium';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         style="font-weight:bold;font-size:62.50000763px;fill:#000000;fill-opacity:1"
-         y="-137.42831"
-         x="-1864.4773"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:75px;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Medium';fill:#000000;fill-opacity:1"
+         y="-131.75877"
+         x="-1864.5653"
          id="tspan4895"
          sodipodi:role="line">a.</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:100px;line-height:100%;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Medium';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-475.15662"
-       y="-115.83624"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:75px;line-height:100%;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Medium';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-475.24472"
+       y="-110.1666"
        id="text4897"
        sodipodi:linespacing="100%"
        transform="matrix(0.99987925,-0.01553966,0.01553966,0.99987925,0,0)"><tspan
          sodipodi:role="line"
          id="tspan4899"
-         x="-475.15662"
-         y="-115.83624"
-         style="font-weight:bold;font-size:62.50000763px;fill:#000000;fill-opacity:1">b.</tspan></text>
+         x="-475.24472"
+         y="-110.1666"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:75px;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Medium';fill:#000000;fill-opacity:1">b.</tspan></text>
     <g
        transform="matrix(0.67669913,-0.73625966,0.73625966,0.67669913,-1384.2222,-145.5416)"
        inkscape:transform-center-y="-40.368229"
@@ -508,22 +508,22 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:100px;line-height:100%;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Medium';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0074ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-1186.5693"
-       y="694.96613"
+       x="-1182.5698"
+       y="695.02826"
        id="text36070"
        sodipodi:linespacing="100%"
        transform="matrix(0.99987925,-0.01553966,0.01553966,0.99987925,0,0)"><tspan
          sodipodi:role="line"
          id="tspan36072"
-         x="-1186.5693"
-         y="694.96613"
+         x="-1182.5698"
+         y="695.02826"
          style="font-style:italic;font-size:50px;fill:#0074ff;fill-opacity:1"><tspan
            id="tspan36074"
-           style="font-style:normal;fill:#0074ff;fill-opacity:1">-<tspan
+           style="font-style:normal;fill:#0074ff;fill-opacity:1"><tspan
    id="tspan36266"
    style="font-style:italic">d</tspan><tspan
    id="tspan36264"
-   style="font-size:65.00000954%;baseline-shift:sub">12</tspan>{</tspan></tspan></text>
+   style="font-size:65.00000954%;baseline-shift:sub">12 </tspan>{</tspan></tspan></text>
     <text
        sodipodi:linespacing="100%"
        id="text36078"
@@ -639,18 +639,18 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:100px;line-height:100%;font-family:'CMU Bright';-inkscape-font-specification:'CMU Bright Medium';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0074ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="382.95029"
-         y="719.3587"
+         x="374.95126"
+         y="719.23444"
          id="text4274"
          sodipodi:linespacing="100%"
          transform="matrix(0.99987925,-0.01553966,0.01553966,0.99987925,0,0)"><tspan
            sodipodi:role="line"
            id="tspan4276"
-           x="382.95029"
-           y="719.3587"
+           x="374.95126"
+           y="719.23444"
            style="font-style:italic;font-size:50px;fill:#0074ff;fill-opacity:1"><tspan
    id="tspan4278"
-   style="font-style:normal;fill:#0074ff;fill-opacity:1">}-</tspan>d<tspan
+   style="font-style:normal;fill:#0074ff;fill-opacity:1">}</tspan>d<tspan
    id="tspan4280"
    style="font-style:normal;font-size:64.99999762%;baseline-shift:sub;fill:#0074ff;fill-opacity:1">12</tspan></tspan></text>
       <path
