@@ -155,7 +155,7 @@ In light of these new secondary structures, and in anticipation of the discovery
 \mbox{}\hfill
 \includegraphics[width=0.9\textwidth]{\figdir/helix_peptide.pdf}
 \hfill\mbox{}\hfill\mbox{}\newline
-  \caption{Internal coordinate \textit{(i)} and helical coordinate \textit{(ii)} representations of right-handed (a) and left-handed (b) regular backbones. Internal coordinates are a function of bond lengths (e.g., $v_{12}$), angles ($\sigma_{2}$), and dihedral angles ($\tau_{12}$), while helical coordinates are a function of displacement along the helical axis ($d_{12}$), angular displacement in the plane perpendicular to the helical axis ($\theta_{12}$) and shortest distance of an  atom from the helical axis ($\rho$; not shown). Representations are adopted from Fig.~1 in \citep{Shimanouchi1955}.
+  \caption{Internal coordinate \textit{(i)} and helical coordinate \textit{(ii)} representations of right-handed (a) and left-handed (b) regular backbones. Internal coordinates are a function of bond lengths (e.g., $v_{12}$), angles ($\sigma_{2}$), and dihedral angles ($\tau_{12}$), while helical coordinates are a function of displacement along the helical axis ($d_{12}$), angular displacement in the plane perpendicular to the helical axis ($\theta_{12}$) and shortest distance of an  atom from the helical axis ($\rho$; not shown). Representations are derived from Fig.~1 in \citep{Shimanouchi1955}.
 \label{fig:helix}}
 \end{figure}
 
@@ -200,7 +200,7 @@ $\sigma_\textrm{n} = 123.0$.},
 we arrive at equations for $\theta$ and $d$ that are purely a function of the backbone dihedral angles. In particular, \cite{Miyazawa1961} set $\omega=\uppi$ and used preset values for bond angles and lengths to arrive at a simpler equation for $trans$ backbones. An updated version of this equation was reported by \cite{Zacharias2013} follows.
 \begin{align}
 \label{eqn:theta_trans}
-\cos\left(\frac{\theta}{2}\right) =-&0.8235~\sin\left(\frac{\phi+\psi}{2}\right) 
+\cos\left(\frac{\theta}{2}\right) =-&~0.8235~\sin\left(\frac{\phi+\psi}{2}\right) 
                                     +0.0222~\sin\left(\frac{\phi-\psi}{2}\right),\\
 \label{eqn:d_trans}
 d \sin\left(\frac{\theta}{2}\right) =&~2.9986~\cos\left(\frac{\phi+\psi}{2}\right)
@@ -210,17 +210,12 @@ d \sin\left(\frac{\theta}{2}\right) =&~2.9986~\cos\left(\frac{\phi+\psi}{2}\righ
 This equation is especially relevant to peptides as they occur predominantly in $trans$ conformations ($\omega=\uppi$). However, given the prevalence of $cis$ backbones in peptide mimics such as peptoids \citep{Mirijanian2014,Gorske2016}, for completeness, we report the corresponding relationships for a $cis$ backbone ($\omega=0$) below.
 \begin{align}
 \label{eqn:theta_cis}
-\cos\left(\frac{\theta}{2}\right) =& 0.4052~\cos\left(\frac{\phi+\psi}{2}\right)
+\cos\left(\frac{\theta}{2}\right) =&~0.4052~\cos\left(\frac{\phi+\psi}{2}\right)
                                     -0.4932~\cos\left(\frac{\phi-\psi}{2}\right), \\
 \label{eqn:theta_d}
-d \sin\left(\frac{\theta}{2}\right) = & 2.3093~\sin\left(\frac{\phi+\psi}{2}\right)
+d \sin\left(\frac{\theta}{2}\right) = &~2.3093~\sin\left(\frac{\phi+\psi}{2}\right)
                                        +0.0028~\sin\left(\frac{\phi-\psi}{2}\right).
 \end{align}
-
-\subsection*{An equation for backbone handedness.} 
-The helical parameters $d$ and $\theta$ host a wealth of information. For example, $d$ is related to the radius of gyration, $d=0$ indicates all atoms of a particular type (e.g., all $\upalpha$-carbons) are in the same plane, and $asd$. \cite{Zacharias2013} observed that $\theta$ and $d$ are also instrumental in describing backbone handedness. We describe this relationship first by words and pictures, and then in equation form. 
-
-$\theta$, with range $[0,2\uppi)$, gives us an idea of how curved or `tightly wound' the backbone twists. The backbone is least curved when $\theta$ is $\uppi$ (i.e., when $\sin(\theta) = 0$) and is the most tightly wound when $\theta$ assumes the value of  $90$ and $270$ (i.e., when $\sin(\theta) = 1$). However, $\theta$ alone can not distinguish between left- and right-handed backbones. This is because, regarding handedness, $\theta$ must be interpreted in the context of helix pitch that is proportional to $d$. In particular, if $d$ is positive, then $\theta < 180$ (or $\sin(\theta)>0$) indicates right handedness, while $\theta > 180$ (or $\sin(\theta)<0$) indicates a left-handed helix. However, if $d$ is negative, then the conditions reverse, and $\sin(\theta)>0$ indicates left-handedness, while $\sin(\theta)<0$ indicates right-handedness. This relationship between $d$, $\theta$ and  handedness is reiterated in \Fig{fig:helix_handedness}.
 
 \begin{figure}[t!]
 \centering
@@ -228,11 +223,16 @@ $\theta$, with range $[0,2\uppi)$, gives us an idea of how curved or `tightly wo
 \caption{\label{fig:helix_handedness} The handedness of a helix is a function of angular displacement perpendicular to the helical axis ($\theta$; green curved arrows) and linear displacement along the helical axis $d$ (blue, vertical arrows). Here, the left- and right-handed twists are respectively referred to as $\textbf{L}$ and $\textbf{D}$ (shown at the bottom), as per the Fisher Projection system \citep{Cross2013}.}
 \end{figure}
 
-Given that the range of $\arccos(x)$ is $[0,\uppi]$, $\theta$'s range is $[0,2\uppi]$ (see \Eqn{eqn:theta}). Therefore, we provide the following, simple, metric for backbone handedness that depends on the sign of $d$ and sign and magnitude of $\theta$:
+\subsection*{An equation for backbone handedness.} 
+The helical parameters $d$ and $\theta$ host a wealth of information. For example, $d=0$ indicates all atoms of a particular type (e.g., all $\upalpha$-carbons) are in the same plane. For any fixed value of $d$, the backbone is least curved when $\theta=\uppi$; similarly, for any fixed value of $\theta$, the backbone is most tightly wound when $\theta$ assumes the value of $d=0$. \cite{Zacharias2013} observed that $\theta$ and $d$ are also instrumental in describing backbone handedness. We describe this relationship first by words and pictures (\Fig{fig:helix_handedness}), and then in equation form.
+
+The relationship between $d$, $\theta$ and  handedness is shown in \Fig{fig:helix_handedness}. While $\theta$ indicates the extent to which a backbone is curved, the handedness of a backbone is dependent on both $\theta$ and $d$, because the sign of $d$ provides a frame of reference for interpreting $\theta$. In particular, if $d$ is positive, then $\theta < \uppi$ indicates right handedness, while $\theta > \uppi$ indicates a left-handed helix. However, if $d$ is negative, then the manner in which the helix is `built' reverses (\Fig{fig:helix_handedness}), and $\theta>\uppi$ indicates left-handedness, while $\sin(\theta)<\uppi$ indicates right-handedness.
+
+Given these relationships, we provide the following, simple, metric for backbone handedness that depends on the sign of $d$ and the value of $\theta$:
 \begin{equation}\label{eqn:chi}
 \chi = \frac{d}{|d|}\frac{\uppi-\theta}{\uppi}
 \end{equation}
-Here, $\chi$ is negative (or positive) when the overall twist of the backbone is left (or right) handed\footnote{A similar but not identical outcome could be obtained if we use the equation $\chi' = \frac{d}{|d|}\sin(\theta)$.}.
+Here, $\chi \in \{-1,\ldots,1\}$ is negative (or positive) when the overall twist of the backbone is left (or right) handed\footnote{A similar but not identical outcome could be obtained if we use the equation $\chi' = \frac{d}{|d|}\sin(\theta)$.}.
 
 \section*{Discussion}
 
