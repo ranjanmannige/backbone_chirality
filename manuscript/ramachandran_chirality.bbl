@@ -1,4 +1,4 @@
-\begin{thebibliography}{49}
+\begin{thebibliography}{44}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -29,13 +29,6 @@
   Shindyalov IN, Bourne PE}. \textbf{2000}.
 \newblock The protein data bank.
 \newblock \emph{Nucleic acids research} \textbf{28(1)}:235--242.
-
-\bibitem[{Chebrek \emph{et~al.}(2014)Chebrek, Leonard, de~Brevern, and
-  Gelly}]{Chebrek2014}
-\textbf{Chebrek R, Leonard S, de~Brevern AG, Gelly JC}. \textbf{2014}.
-\newblock Polypronline: polyproline helix ii and secondary structure assignment
-  database.
-\newblock \emph{Database} \textbf{2014}:bau102.
 
 \bibitem[{Chothia \emph{et~al.}(1977)Chothia, Levitt, and
   Richardson}]{Chothia1977}
@@ -69,13 +62,6 @@
 \newblock On the assessment of molecular chirality.
 \newblock \emph{Journal of the Chemical Society, Perkin Transactions 2}
   \textbf{(2)}:455--460.
-
-\bibitem[{Fox \emph{et~al.}(2014)Fox, Brenner, and Chandonia}]{Fox2014}
-\textbf{Fox NK, Brenner SE, Chandonia JM}. \textbf{2014}.
-\newblock Scope: Structural classification of proteins--extended, integrating
-  scop and astral data and classification of new structures.
-\newblock \emph{Nucleic Acids Res} \textbf{42(Database issue)}:D304--D309.
-\newblock \doi{10.1093/nar/gkt1240}.
 
 \bibitem[{Goodman \emph{et~al.}(2007)Goodman, Choi, Shandler, and
   DeGrado}]{Goodman2007}
@@ -114,21 +100,6 @@
   ramachandran plot.
 \newblock \emph{Computer applications in the biosciences: CABIOS}
   \textbf{13(4)}:425--430.
-
-\bibitem[{Joosten \emph{et~al.}(2011)Joosten, {te Beek}, Krieger, Hekkelman,
-  Hooft, Schneider, Sander, and Vriend}]{Joosten2011}
-\textbf{Joosten RP, {te Beek} TAH, Krieger E, Hekkelman ML, Hooft RWW,
-  Schneider R, Sander C, Vriend G}. \textbf{2011}.
-\newblock A series of pdb related databases for everyday needs.
-\newblock \emph{Nucleic Acids Res} \textbf{39(Database issue)}:D411--D419.
-\newblock \doi{10.1093/nar/gkq1105}.
-
-\bibitem[{Kabsch and Sander(1983)}]{Kabsch1983}
-\textbf{Kabsch W, Sander C}. \textbf{1983}.
-\newblock Dictionary of protein secondary structure: pattern recognition of
-  hydrogen-bonded and geometrical features.
-\newblock \emph{Biopolymers} \textbf{22(12)}:2577--2637.
-\newblock \doi{10.1002/bip.360221211}.
 
 \bibitem[{Kandakov and Ginzburg(2013)}]{Kandakov2013}
 \textbf{Kandakov A, Ginzburg B}. \textbf{2013}.
@@ -304,12 +275,6 @@
 \newblock Geometry motivated alternative view on local protein backbone
   structures.
 \newblock \emph{Protein Science} \textbf{22(11)}:1669--1674.
-
-\bibitem[{Zhao \emph{et~al.}(2005)Zhao, Schultz, and Truhlar}]{Zhao2005}
-\textbf{Zhao Y, Schultz NE, Truhlar D}. \textbf{2005}.
-\newblock Exchange-correlation functional with broad accuracy for metallic and
-  nonmetallic compounds, kinetics, and noncovalent interactions.
-\newblock \emph{The Journal of chemical physics} \textbf{123(16)}:161103.
 
 \bibitem[{Zuckermann and Kodadek(2009)}]{Zuckermann2009}
 \textbf{Zuckermann RN, Kodadek T}. \textbf{2009}.

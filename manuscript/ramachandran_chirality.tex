@@ -8,8 +8,8 @@
 %% version 1.1 or newer of the wlpeerj.cls file, and
 %% the corresponding author info requires v1.2
 
-%\documentclass[fleqn,10pt,lineno]{wlpeerj} % for journal submissions
-\documentclass[fleqn,10pt]{wlpeerj} % for preprint submissions
+\documentclass[fleqn,10pt,lineno]{wlpeerj} % for journal submissions
+%\documentclass[fleqn,10pt]{wlpeerj} % for preprint submissions
 
 %\newcommand{\rr}{${\mathcal{R}}$}
 \usepackage{bbding} %for FiveStarOpen
@@ -142,12 +142,6 @@ Certain peptoids display secondary structures in regions of the Ramachandran plo
 
 In light of these new secondary structures, and in anticipation of the discovery of additional (higher-order) secondary structures, we chose to perform a detailed study into how regular backbones twist in each region of the Ramachandran plot. This question builds on a previous report that discussed handedness in all-$trans$-backbones \citep{Zacharias2013}, and would complete our understanding of a very basic component of biochemistry (handedness and twist of a backbone). An additional aim is to completely dispel the na{\"i}ve view in \Fig{fig:intro}d.
 
-
-\section*{Deriving measures for backbone handedness}
-Numerous metrics for molecular chirality and handedness have so far been discussed \citep{Harris1999}. For example, metrics for chirality have been introduced that focus on vector orientations \citep{Kwiecinska2005,Gruziel2013}, optical activity \citep{Osipov1995}, and molecular shape \citep{Ferrarini1998}. However, we will focus on a simpler metric for chirality associated with an idealized helix within which all atoms of the backbone sits \citep{Shimanouchi1955,Miyazawa1961,Zacharias2013}. We do this because any {\em regular} backbone can be associated with a specific helix\footnote{Indeed, the word `helix' has a broader meaning that comes from the Greek word $\check\epsilon\lambda\iota\xi$ that means `twisted, curved'; \cite{Liddell1894}.}, and, as we will discuss below, helices have handedness baked into the equations. We will first introduce the use of helical coordinates (and how peptides may be treated in such contexts), after which we will show how some parameters within the helical coordinate system (namely $d$ and $\theta$) may be combined to describe a physically unambiguous meaning of handedness of a backbone's twist.
-
-\subsection*{Describing a regular backbone as a helix.} Interest in how a backbone may be represented as a helix emerged shortly after the first secondary structures were introduced \citep{Pauling1951,Pauling1951a,Pauling1951b}. \cite{Shimanouchi1955} had derived a set of equations that fit a platonic helix to the atoms within a {\it regularly arranged} backbone. Here, a `regular' backbone  indicates that each tunable parameter within a unit or `residue' -- say a particular dihedral angle -- remains the same for all residues. \Fig{fig:helix} describes an arbitrary peptide backbone that may be represented either using internal coordinates \textit{(i)} or helical coordinates \textit{(ii)}. 
-
 \begin{figure}[t!]
 \mbox{}\hfill
 \includegraphics[width=0.9\textwidth]{\figdir/helix_peptide.pdf}
@@ -155,6 +149,14 @@ Numerous metrics for molecular chirality and handedness have so far been discuss
   \caption{Internal coordinate \textit{(i)} and helical coordinate \textit{(ii)} representations of right-handed (a) and left-handed (b) regular backbones. Internal coordinates are a function of bond lengths (e.g., $v_{12}$), angles ($\sigma_{2}$), and dihedral angles ($\tau_{12}$), while helical coordinates are a function of displacement along the helical axis ($d_{12}$), angular displacement in the plane perpendicular to the helical axis ($\theta_{12}$) and shortest distance of an  atom from the helical axis ($\rho$; not shown). Representations are derived from Fig.~1 in \citep{Shimanouchi1955}.
 \label{fig:helix}}
 \end{figure}
+
+\section*{Methods}
+All methods and materials required to produce this manuscript are freely available at \url{https://github.com/ranjanmannige/backbone_chirality}.
+
+\subsection*{Deriving measures for backbone handedness}
+Numerous metrics for molecular chirality and handedness have so far been discussed \citep{Harris1999}. For example, metrics for chirality have been introduced that focus on vector orientations \citep{Kwiecinska2005,Gruziel2013}, optical activity \citep{Osipov1995}, and molecular shape \citep{Ferrarini1998}. However, we will focus on a simpler metric for chirality associated with an idealized helix within which all atoms of the backbone sits \citep{Shimanouchi1955,Miyazawa1961,Zacharias2013}. We do this because any {\em regular} backbone can be associated with a specific helix\footnote{Indeed, the word `helix' has a broader meaning that comes from the Greek word $\check\epsilon\lambda\iota\xi$ that means `twisted, curved'; \cite{Liddell1894}.}, and, as we will discuss below, helices have handedness baked into the equations. We will first introduce the use of helical coordinates (and how peptides may be treated in such contexts), after which we will show how some parameters within the helical coordinate system (namely $d$ and $\theta$) may be combined to describe a physically unambiguous meaning of handedness of a backbone's twist.
+
+\subsection*{Describing a regular backbone as a helix.} Interest in how a backbone may be represented as a helix emerged shortly after the first secondary structures were introduced \citep{Pauling1951,Pauling1951a,Pauling1951b}. \cite{Shimanouchi1955} had derived a set of equations that fit a platonic helix to the atoms within a {\it regularly arranged} backbone. Here, a `regular' backbone  indicates that each tunable parameter within a unit or `residue' -- say a particular dihedral angle -- remains the same for all residues. \Fig{fig:helix} describes an arbitrary peptide backbone that may be represented either using internal coordinates \textit{(i)} or helical coordinates \textit{(ii)}. 
 
 Internal coordinates are associated with (stereo)chemical terms: bond lengths ($v_{ij}$) between adjacent atoms $i$ and $j$, bond angles ($\sigma_{i}$) between the two backbone bonds adjacent to atom $i$, and dihedral or torsion angles ($\tau_{ij}$), which are associated with the bond $i-j$ and the atoms preceding and succeeding these atoms. Helical coordinates (\Fig{fig:helix}\textit{(ii)}) are described using measures of vertical displacement ($d$; this is related to the pitch of a platonic helix), angular displacement ($\theta$) and the radius of the helix ($\rho$; not shown in \Fig{fig:helix})\footnote{\cite{Miyazawa1961} also reported a helix parameter related to $\theta$ and $d$ -- the radius ($\rho$) of the helix (Eqn.~38 in that report) -- which will not be discussed here, as its meaning with regards to handedness is redundant.}. Given that there are three atoms associated with a residue (\Fig{fig:intro}a), $d$ and $\theta$, which are per-residue values, are described in terms of distances ($d_{hk}$) and angles ($\theta_{hk}$) between adjacent atoms, where  $\left(h,k\right)\in\{\left(\textrm{N}_i,\textrm{C}_{\upalpha,i}\right), \left(\textrm{C}_{\upalpha,i},\textrm{C}_i\right), \left(\textrm{N}_i,\textrm{C}_{i+1}\right)\}$. Here, 
 $\textrm{N}$, $\textrm{C}_{\upalpha}$, and $\textrm{C}$ are the backbone nitrogen, $\upalpha$-carbon, and carbonyl carbon atoms (\Fig{fig:intro}a), and the index $i$ (and $i+1$) indicates residue position. 
@@ -226,6 +228,31 @@ Given these relationships, we provide the following, simple, metric for backbone
 \end{equation}
 Here, $\chi \in \{-1,\ldots,1\}$ is negative (or positive) when the overall twist of the backbone is left (or right) handed\footnote{A similar but not identical outcome could be obtained if we use the equation $\chi' = \frac{d}{|d|}\sin(\theta)$.}.
 
+\subsection*{Alternative measures of handedness.} 
+
+Two estimates for handedness -- $\chi_1$ and $\chi_2$ -- used to validate the derived measure of chirality $\chi$ (\Eqn{eqn:chi}) were previously used by \citep{Kwiecinska2005} and \cite{Gruziel2013}, respectively. The equations are: \begin{equation} \label{eqn:chi1}
+\chi_1 = \frac{1}{N}\sum_{i = 2}^{N-2} \frac{(\textit{\textbf{v}}_{i-1} \times \textit{\textbf{v}}_{i})\cdot \textit{\textbf{v}}_{i+1}}{\textit{v}_{i-1} \textit{v}_{i} \textit{v}_{i+1}},
+\end{equation}
+\begin{equation}\label{eqn:chi2}
+\displaystyle \chi_2 = \frac{1}{\uppi N}\sum_{i = 2}^{N-2}
+ \textrm{arctan2}\left (\textit{v}_i \textit{\textbf{v}}_{i-1} \cdot \textit{\textbf{v}}_i \times \textit{\textbf{v}}_{i+1},\textit{\textbf{v}}_{i-1}\times \textit{\textbf{v}}_i \cdot \textit{\textbf{v}}_i\times \textit{\textbf{v}}_{i+1} \right ).
+\end{equation}
+
+%$\chi_1$, was used previously as a measure of helix twist handedness 
+Here, $N$ is the peptide length, $i$ is the peptide residue number and the position of each $\upalpha$-carbon is $\textit{\textbf{N}}_i$, with vector $\textit{\textbf{v}}_{k} \equiv \textit{\textbf{N}}_{k+1} - \textit{\textbf{N}}_{k}$. 
+%Vector $\textit{\textbf{v}}_{ij} \equiv \textit{\textbf{N}}_{i} - \textit{\textbf{N}}_{j}$ and $\textit{\textbf{v}}_{k} \equiv \textit{\textbf{v}}_{k+1,k} = \textit{\textbf{N}}_{k+1} - \textit{\textbf{N}}_{k}$. 
+The scalar component of the vector $\textit{\textbf{v}}_i$ is denoted as $\textit{v}_i$. 
+%Each scalar in the denominator within the summand (e.g. $\textit{v}_i$) indicates the distance between neighboring alpha carbons, which is $\sim$3\ang and $\sim$3.85\ang for backbones whose amide dihedral angles respectively are $cis$ ($\omega\approx0$) and $trans$ ($\omega\approx\uppi$). If we know that the backbone amide is either all-$cis$ or all-$trans$, then the denominator can be simplified to $\textit{v}_i^3$.
+In both metrics, the average peptide backbone handedness $\chi$ has range $[-1,1]$\footnote{Although \Eqn{eqn:chi2} in \cite{Gruziel2013} is not normalized by $\uppi$ and has the range $[-\uppi,\uppi]$.}. Values deviating more from 0 are more chiral (or `twisted' or `handed'), and left-handed twists are negative while right-handed twists are positive. Only $\upalpha$-carbon atom positions are used for the calculation. 
+
+%\begin{equation}\label{eqn:chi3}
+%\displaystyle \chi_2 = \frac{4!}{3N^4} \sum_{i,j,k,l \in \textit{\textbf{N}}} \frac{((\textit{\textbf{v}}_{ij} \times \textit{\textbf{v}}_{kl}) \cdot \textit{\textbf{v}}_{il}) (\textit{\textbf{v}}_{ij} \cdot \textit{\textbf{v}}_{jk}) (\textit{\textbf{v}}_{jk} \cdot \textit{\textbf{v}}_{kl})} {\left(\textit{v}_{ij} \textit{v}_{jk} \textit{v}_{kl}\right)^2 \textit{v}_{il}}.
+%\end{equation}
+%$\chi_2$, of arbitrary range $[-\lambda,\lambda]$, is known as the chirality index $G_{0S}$ in \cite{Solymosi2002} and \cite{Neal2003}. $(i,j,k,l)$ are exhaustive permutations of $\{1,2,\ldots,N\}$.
+
+While \Eqn{eqn:chi} is purely analytical and does not need structures to be computationally generated, \Eqns{eqn:chi1} and~\ref{eqn:chi2} do. In order to use these equations, peptides (poly-glycines) of arbitrary length were generated using the Python-based PeptideBuilder library \citep{Matthew2013}. %\footnote{As we are dealing with regular peptides, peptide length need only be greater than 4 residues.}. 
+Analysis was performed using BioPython \citep{Cock2009} and Numerical Python \citep{VanDerWalt2011}. Ramachandran plots that describe chirality (e.g., \Fig{fig:chi}a) were generated using a grid spacing of $\phi,\psi \in \{-180,-178,\ldots,178,180\}$.
+
 \section*{Discussion}
 
 \begin{figure}[t!]
@@ -233,7 +260,8 @@ Here, $\chi \in \{-1,\ldots,1\}$ is negative (or positive) when the overall twis
 \centering
 \includegraphics[width=\linewidth]{\figdir/chi_snapshots.pdf}
 \caption{\label{fig:chi} The chirality of an ordered $trans$ peptide within the Ramachandran plot. Panel (a) displays the relationship between backbone parameters $(\phi,\psi)$ and the associated helix parameters of curvature $\theta-\uppi$ (top; \Eqn{eqn:theta}) and pitch $d$ (bottom; \Eqn{eqn:d}). The boundaries, $\theta = \uppi$ (`\protect\dashedrule') and $d=0$ (`\protect\dotdashedrule'), correspond to backbones that are equally flat, but which are respectively optimally extended and curved (see discussion in text). As shown in \Fig{fig:helix_handedness}, the handedness of a helix is a function of these two variables ($\chi$; \Eqn{eqn:chi}). Panel (b) is a map of backbone chirality ($\chi$) as a function of $\phi$ and $\psi$. 
-This map shows that the na{\"i}ve expectation of handedness in a Ramachandran plot (\Fig{fig:intro}d) is inaccurate.  Interestingly, our na{\"i}ve expectations (\Fig{fig:intro}d) would be upheld if we were only to have sampled regions of the Ramachandran plot dominated by known proteins (a; regions enclosed by `\protect\dottedrule'). An example of the behavior of one `slice' of (b) is shown in (c). Each snapshot represents a peptide backbone that is either in a distinct region of handedness or at a boundary.}
+This map shows that the na{\"i}ve expectation of handedness in a Ramachandran plot (\Fig{fig:intro}d) is inaccurate.  Interestingly, our na{\"i}ve expectations (\Fig{fig:intro}d) would be upheld if we were only to have sampled regions of the Ramachandran plot dominated by known proteins (a; regions enclosed by `\protect\dottedrule'). An example of the behavior of one `slice' of (b) is shown in (c). Each snapshot represents a peptide backbone that is either in a distinct region of handedness or at a boundary. Secondary structure statistics were obtained from \cite{MannigeKunduWhitelam2016}. %Given that this is previously reported, we have not provided code for this procedure within the GitHub repository. As per \cite{MannigeKunduWhitelam2016}, $\upalpha$-helices, $3_{10}$-helices and $\upbeta$-sheets were identified using the DSSP algorithm \citep{Zhao2005,Kabsch1983,Joosten2011} and sourced from protein structures within the 40\% non-redundant database provided by the Structural Classification of Proteins or SCOP (Release 2.03; \cite{Fox2014}). The polyproline II helix statistics were obtained from segments within 16,535 proteins annotated by PolyprOnline \citep{Chebrek2014} to contain three or more residues of the secondary structure.
+}
 \end{adjustwidth}
 \end{figure}
 
@@ -276,7 +304,7 @@ Given the periodicity of the Ramachandran plot, these differences do not make an
 
 
 
-\begin{figure}[b!]
+\begin{figure}[t!]
 \centering
 \includegraphics[width=\linewidth]{\figdir/various_chis_skewed.pdf}
 \caption{\label{fig:other_chis_skewed} Each panel describes handedness data (right) and boundaries (left). Both frames of references $\left[-\uppi,\ldots,\uppi\right]$ and $\left[0,\ldots,2\uppi\right]$ yield similar trends for $trans$ backbones (a,b); however, for $cis$ backbones, the latter frame of reference (d) appears to more neatly apportion the handedness of the backbone rather than the traditional frame of reference (c). As in \Figs{fig:chi} and~\ref{fig:chi_all}, `\protect\dashedrule' and `\protect\dotdashedrule' respectively correspond to $\theta = \uppi$ and $d=0$.}
@@ -292,37 +320,6 @@ Given the periodicity of the Ramachandran plot, these differences do not make an
 \item $\theta=\uppi$ codes for backbones that are flat and optimally collapsed or curved (for a fixed $d$).
 \item Ramachandran plots have traditionally been shown in the range $[-\uppi,\uppi]$, however, \Fig{fig:other_chis_skewed} indicates that the alternative range -- $[0,2\uppi]$ -- may be more meaningful when considering basic structural properties, especially when considering the $cis$ backbone.
 \end{enumerate}
-
-\section*{Methods}
-All methods and materials required to produce this manuscript are freely available at \url{https://github.com/ranjanmannige/backbone_chirality.git}.  The manuscript itself may be recreated by running `\texttt{python compileme.py}' within the sub-directory \texttt{manuscript/} (this command uses PDFLatex; however any other flavor of latex may be used in stead).
-
-\subsection*{Other measures of handedness -- calculating handedness from generated structures.} 
-
-In addition to \Eqn{eqn:chi}, two estimates for handedness were used to validate \Eqn{eqn:chi} ($\chi$), which are shown for $trans$ and $cis$ backbones in \Fig{fig:chi_all}. 
-
-The first metric, previously used as a measure of helix twist handedness \citep{Kwiecinska2005}, is the following.
-\begin{equation} \label{eqn:chi1}
-\chi_1 = \frac{1}{N}\sum_{i = 2}^{N-2} \frac{(\textit{\textbf{v}}_{i-1} \times \textit{\textbf{v}}_{i})\cdot \textit{\textbf{v}}_{i+1}}{\textit{v}_{i-1} \textit{v}_{i} \textit{v}_{i+1}}.
-\end{equation}
-Here, $N$ is the peptide length, and the average peptide backbone handedness $\chi$ has range $[-1,1]$. Values deviating from 0 are more chiral (or `twisted' or `handed'), and left-handed twists are negative while right-handed twists are positive. Only $\upalpha$-carbon atom positions are used for the calculation. Each $\upalpha$-carbon belonging to residue $i \in \{ 1,2,\ldots N \}$ has position $\textit{\textbf{N}}_i$. %Vector $\textit{\textbf{v}}_{ij} \equiv \textit{\textbf{N}}_{i} - \textit{\textbf{N}}_{j}$ and $\textit{\textbf{v}}_{k} \equiv \textit{\textbf{v}}_{k+1,k} = \textit{\textbf{N}}_{k+1} - \textit{\textbf{N}}_{k}$. 
-Vector $\textit{\textbf{v}}_{k} \equiv \textit{\textbf{N}}_{k+1} - \textit{\textbf{N}}_{k}$. 
-The scalar component of the vector $\textit{\textbf{v}}_i$ is denoted as $\textit{v}_i$. Each scalar in the denominator within the summand (e.g. $\textit{v}_i$) indicates the distance between neighboring alpha carbons, which is $\sim$3\ang and $\sim$3.85\ang for backbones whose amide dihedral angles respectively are $cis$ ($\omega\approx0$) and $trans$ ($\omega\approx\uppi$). If we know that the backbone amide is either all-$cis$ or all-$trans$, then the denominator can be simplified to $\textit{v}_i^3$.
-
-The second measure for handedness, used by \cite{Gruziel2013}, is
-\begin{equation}\label{eqn:chi2}
-\displaystyle \chi_2 = \frac{1}{\uppi N}\sum_{i = 2}^{N-2}
- \textrm{arctan2}\left (\textit{v}_i \textit{\textbf{v}}_{i-1} \cdot \textit{\textbf{v}}_i \times \textit{\textbf{v}}_{i+1},\textit{\textbf{v}}_{i-1}\times \textit{\textbf{v}}_i \cdot \textit{\textbf{v}}_i\times \textit{\textbf{v}}_{i+1} \right ).
-\end{equation}
-%\begin{equation}\label{eqn:chi3}
-%\displaystyle \chi_2 = \frac{4!}{3N^4} \sum_{i,j,k,l \in \textit{\textbf{N}}} \frac{((\textit{\textbf{v}}_{ij} \times \textit{\textbf{v}}_{kl}) \cdot \textit{\textbf{v}}_{il}) (\textit{\textbf{v}}_{ij} \cdot \textit{\textbf{v}}_{jk}) (\textit{\textbf{v}}_{jk} \cdot \textit{\textbf{v}}_{kl})} {\left(\textit{v}_{ij} \textit{v}_{jk} \textit{v}_{kl}\right)^2 \textit{v}_{il}}.
-%\end{equation}
-Here, $\chi_2$ is known as $\chi$ in \cite{Gruziel2013}, absent the normalization by $\uppi$ used here to set the range from $-1$ to $1$ instead of $-\uppi$ to $\uppi$. %$\chi_2$, of arbitrary range $[-\lambda,\lambda]$, is known as the chirality index $G_{0S}$ in \cite{Solymosi2002} and \cite{Neal2003}. $(i,j,k,l)$ are exhaustive permutations of $\{1,2,\ldots,N\}$.
-
-\subsection*{Generating regular peptides.}
-While \Eqn{eqn:chi} is purely analytical and does not need structures to be computationally generated, \Eqns{eqn:chi1} and~\ref{eqn:chi2} do. In order to use these equations, peptides (poly-glycines) of arbitrary length were generated using the Python-based PeptideBuilder library \citep{Matthew2013}\footnote{As we are dealing with regular peptides, peptide length must only be greater than 4 residues.}. Analysis was performed using BioPython \citep{Cock2009} and Numerical Python \citep{VanDerWalt2011}. Ramachandran plots that describe chirality (e.g., \Fig{fig:chi}a) were generated using a grid spacing of $\phi,\psi \in \{-180,-178,\ldots,178,180\}$.
-
-\subsection*{Protein secondary structure statistics.} 
-Secondary structure statistics were obtained from \cite{MannigeKunduWhitelam2016}. Given that this is previously reported, we have not provided code for this procedure within the GitHub repository. As per \cite{MannigeKunduWhitelam2016}, $\upalpha$-helices, $3_{10}$-helices and $\upbeta$-sheets were identified using the DSSP algorithm \citep{Zhao2005,Kabsch1983,Joosten2011} and sourced from protein structures within the 40\% non-redundant database provided by the Structural Classification of Proteins or SCOP (Release 2.03; \cite{Fox2014}). The polyproline II helix statistics were obtained from segments within 16,535 proteins annotated by PolyprOnline \citep{Chebrek2014} to contain three or more residues of the secondary structure.
 
 \section*{Acknowledgments}
 
