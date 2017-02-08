@@ -7,7 +7,7 @@ The location of each figure's panel is stored in "output.txt"
 output_file = open("output.txt","w")
 
 # GLOBAL IMPORTS:
-import os, sys, copy 
+import os, sys, copy, random
 import matplotlib.pyplot as plt                       # For utilizing colormap interpolation 
 import numpy as np
 import Bio.PDB # Biopython's PDB module
@@ -29,6 +29,27 @@ def cos(a):
 def sin(a):
 	return np.sin(np.radians(a))
 
+# ===================================================================================
+# SETTING UP A CUSTOM COLORMAP
+# 
+COLORSWITCH = 0.5; bc = [1,1,1] # background (white)
+import seaborn as sns
+import colorsys
+r  = [colorsys.rgb_to_hsv(1,0,0)[0],0.75,0.5]
+y  = [colorsys.rgb_to_hsv(1,1,0)[0],0.5,0.75]
+c3 = colorsys.hsv_to_rgb(*r) # the '*' converts [a,b,c] into a,b,c
+c4 = colorsys.hsv_to_rgb(*y)
+# Now the color map dictionary
+cdict = {
+	'red':   ((0.00,  c3[0], c3[0]), (COLORSWITCH,  bc[0], bc[0]), (1.0, c4[0], c4[0])), 
+	'green': ((0.00,  c3[1], c3[1]), (COLORSWITCH,  bc[1], bc[1]), (1.0, c4[1], c4[1])),
+	'blue':  ((0.00,  c3[2], c3[2]), (COLORSWITCH,  bc[2], bc[2]), (1.0, c4[2], c4[2])) 
+}
+from matplotlib.colors import LinearSegmentedColormap # For making your own colormaps
+cmap = LinearSegmentedColormap('chirality_r', cdict)
+plt.register_cmap(cmap=cmap)
+
+# ----------------------------------------------------------------------------
 
 if 1:
 	# Fig 4c
@@ -151,7 +172,132 @@ if 1:
 		sys.stdout.write("\n")
 		sys.stdout.flush()
 		plt.clf()
-exit()
+
+
+if 0:
+	# Creating Fig 4b in many color combinations to see which one prints OK 
+	# in black and white
+	sns.set_style('whitegrid')
+	
+	# getting the data
+	omega = 180.0 # trans backbones only
+	#plt.clf()
+	X = []
+	Y = []
+	Z = []
+	for phi in range(-180,181,5):
+		for psi in range(-180,181,5):
+			
+			chi, theta, d = locallib.calculate_handedness_from_theory(phi,psi,omega)
+			
+			X.append(phi)
+			Y.append(psi)
+			Z.append(chi)
+	imagex,imagey,imagez = locallib.xyz_to_image(X,Y,Z)
+	xset = sorted(set(imagex.flatten()))
+	yset = sorted(set(imagey.flatten()))
+	extent = [xset[0], xset[-1], yset[0], yset[-1]]
+	# ---------------------------------------------------------------
+	
+	saturation_and_value_iterations = 4
+	
+	from mpl_toolkits.axes_grid1 import AxesGrid
+	fig = plt.figure()
+	grid = AxesGrid(fig, 111,
+			nrows_ncols=(4, 6),
+			axes_pad=0.0,
+			aspect = 1.0,
+			share_all=False,
+			label_mode="L",
+			)
+	
+	cmap = plt.get_cmap("chirality_r")
+	
+	red_choices    = [(.5,.5),(.5,.75),(1,.5),(.75,1),(1,1),(.75,.5)]
+	yellow_choices = [(.5,.75),(.75,.75),(.75,.5),(1,.75)]
+	
+	xcount = 0
+	ycount = 1
+	#for i in range(saturation_and_value_iterations*saturation_and_value_iterations):
+	#help(grid)
+	rcounter = 0
+	ycounter = 0
+	for ax in grid:
+		#S1 = random.choice([0.5,0.75,1.0])
+		#V1 = random.choice([0.5,0.75,1.0])
+		#S2 = random.choice([0.5,0.75,1.0])
+		#V2 = random.choice([0.5,0.75,1.0])
+		
+		r  = red_choices[rcounter]
+		y  = yellow_choices[ycounter]
+		S1 = r[0]
+		V1 = r[1]
+		S2 = y[0]
+		V2 = y[1]
+		
+		rcounter += 1
+		if rcounter % 6 == 0:
+			ycounter += 1
+			rcounter  = 0
+		
+		#
+		'''
+		S1 = random.choice(np.arange(0.4,1.01,0.1))
+		V1 = random.choice(np.arange(0.4,1.01,0.1))
+		S2 = random.choice(np.arange(0.4,1.01,0.1))
+		V2 = random.choice(np.arange(0.4,1.01,0.1))
+		choice = random.choice([0,1])
+		S1 = random.choice(np.arange(0.5  ,0.751,0.1))
+		S2 = random.choice(np.arange(0.751,1.01,0.1))
+		V1 = random.choice(np.arange(0.751,1.01,0.1))
+		V2 = random.choice(np.arange(0.5  ,0.751,0.1))
+		if choice == 0:
+			S1 = random.choice(np.arange(0.751,1.01,0.1))
+			S2 = random.choice(np.arange(0.5  ,0.751,0.1))
+			V1 = random.choice(np.arange(0.5  ,0.751,0.1))
+			V2 = random.choice(np.arange(0.751,1.01,0.1))
+		'''
+		# ===================================================================================
+		# SETTING UP SOME COLORMAP
+		# 
+		COLORSWITCH = 0.5; bc = [1,1,1] # background (white)
+		import seaborn as sns
+		import colorsys
+		red_hue    = colorsys.rgb_to_hsv(1,0,0)[0]
+		blue_hue   = colorsys.rgb_to_hsv(0,0,1)[0]
+		yellow_hue = colorsys.rgb_to_hsv(1,1,0)[0]
+		blue_hue = yellow_hue #!!!!!!!!!!!!
+		c3 = colorsys.hsv_to_rgb(red_hue , S1, V1)
+		c4 = colorsys.hsv_to_rgb(blue_hue, S2, V2)
+		# Now the color map dictionary
+		cdict = {
+			'red':   ((0.00,  c3[0], c3[0]), (COLORSWITCH,  bc[0], bc[0]), (1.0, c4[0], c4[0])), 
+			'green': ((0.00,  c3[1], c3[1]), (COLORSWITCH,  bc[1], bc[1]), (1.0, c4[1], c4[1])),
+			'blue':  ((0.00,  c3[2], c3[2]), (COLORSWITCH,  bc[2], bc[2]), (1.0, c4[2], c4[2])) 
+		}
+		from matplotlib.colors import LinearSegmentedColormap # For making your own colormaps
+		cmap = LinearSegmentedColormap('chirality_r', cdict)
+		#plt.register_cmap(cmap=cmap_chirality_r)
+		
+		ax.pcolor(imagex,imagey,imagez, cmap=cmap, vmin=np.nanmin(Z),vmax=np.nanmax(Z))
+		#help(ax)
+		ax.axes.set_xlim(-180,180)
+		ax.axes.set_ylim(-180,180)
+		ax.axes.set_yticks([])
+		ax.axes.set_xticks([])
+		ax.axes.text(1.0, 1.0, "("+str(round(S1,2))+","+str(round(V1,2))+")\n"
+	                              +"("+str(round(S2,2))+","+str(round(V2,2))+")",
+		            size=7,horizontalalignment='center',verticalalignment='center',)
+		#plt.yticks([])
+		#plt.axis(extent)
+		
+		plt.savefig("deme.png",dpi=280,bbox_inches="tight")
+		
+
+		
+	plt.show()
+	exit()
+	
 if 1:
 	# Fig 4a
 	# Fig 4b
@@ -313,7 +459,6 @@ if 1:
 					xticks=xticks, yticks=yticks,
 					xlim=[amin,amax],ylim=[amin,amax],show=0,start_fresh=1, colorbar=1,
 					zlim=[np.nanmin(newZchi),np.nanmax(newZchi)])
-	exit()
 
 if 1: # Fig 1c drawing left (L) and right (D) versions of the Alpha-helix
 	N = 12
