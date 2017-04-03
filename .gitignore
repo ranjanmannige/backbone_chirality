@@ -1,6 +1,9 @@
 **/*.pyc
 graphs/
 manuscript/figures/*.svg
+manuscript/for_peerj/
+manuscript/response.*
 pdbs/
 local_imports/
+local_database/
 manuscript/figures/*/

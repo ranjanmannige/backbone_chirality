@@ -1,5 +1,5 @@
 import os
-fn = "ramachandran_chirality"
+fn = "ramachandran_handedness"
 os.system("pdflatex "+fn)
 os.system("bibtex "+fn)
 os.system("pdflatex "+fn)
