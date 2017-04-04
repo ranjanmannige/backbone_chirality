@@ -1,0 +1,180 @@
+Statistics for: ' '
+	--
+	phi mean  : -82.3409
+	phi median: -84.5966
+	phi std   : 54.1804
+	--
+	psi mean  : 100.3496
+	psi median: 132.8329
+	psi std   : 82.1642
+	--
+	omega mean  : 179.5221
+	omega median: 179.8979
+	omega std   : 5.2563
+	--
+	h mean  : -0.2884
+	h median: -0.5479
+	h std   : 0.6676
+------
+Statistics for: 'all'
+	--
+	phi mean  : -75.5175
+	phi median: -72.8158
+	phi std   : 54.9502
+	--
+	psi mean  : 33.8438
+	psi median: -3.8532
+	psi std   : 94.4177
+	--
+	omega mean  : 179.4295
+	omega median: 179.721
+	omega std   : 4.6207
+	--
+	h mean  : 0.3311
+	h median: 0.9105
+	h std   : 0.7503
+------
+Statistics for: 'B'
+	--
+	phi mean  : -96.8483
+	phi median: -100.0248
+	phi std   : 48.7105
+	--
+	psi mean  : 123.1106
+	psi median: 138.647
+	psi std   : 67.4904
+	--
+	omega mean  : 178.7766
+	omega median: 179.4437
+	omega std   : 5.471
+	--
+	h mean  : -0.3399
+	h median: -0.4262
+	h std   : 0.4692
+------
+Statistics for: 'E'
+	--
+	phi mean  : -111.3405
+	phi median: -116.9227
+	phi std   : 41.5161
+	--
+	psi mean  : 122.7004
+	psi median: 133.3729
+	psi std   : 57.3643
+	--
+	omega mean  : 178.5893
+	omega median: 179.2178
+	omega std   : 5.3438
+	--
+	h mean  : -0.143
+	h median: -0.1441
+	h std   : 0.391
+------
+Statistics for: 'G'
+	--
+	phi mean  : -66.2843
+	phi median: -65.6904
+	phi std   : 33.5377
+	--
+	psi mean  : -15.5441
+	psi median: -17.7763
+	psi std   : 28.6995
+	--
+	omega mean  : 180.2583
+	omega median: 180.2211
+	omega std   : 4.2014
+	--
+	h mean  : 0.8819
+	h median: 0.9641
+	h std   : 0.3711
+------
+Statistics for: 'I'
+	--
+	phi mean  : -73.0931
+	phi median: -74.9747
+	phi std   : 42.9511
+	--
+	psi mean  : -38.4235
+	psi median: -46.2565
+	psi std   : 42.933
+	--
+	omega mean  : 182.3422
+	omega median: 181.8125
+	omega std   : 4.7904
+	--
+	h mean  : 0.4598
+	h median: 0.9632
+	h std   : 0.8189
+------
+Statistics for: 'H'
+	--
+	phi mean  : -64.7231
+	phi median: -63.3098
+	phi std   : 11.4936
+	--
+	psi mean  : -39.8761
+	psi median: -41.3513
+	psi std   : 10.9873
+	--
+	omega mean  : 179.5254
+	omega median: 179.6281
+	omega std   : 3.3794
+	--
+	h mean  : 0.987
+	h median: 0.9956
+	h std   : 0.0665
+------
+Statistics for: 'S'
+	--
+	phi mean  : -69.2048
+	phi median: -84.2498
+	phi std   : 73.2066
+	--
+	psi mean  : 41.3305
+	psi median: 20.5202
+	psi std   : 97.123
+	--
+	omega mean  : 179.9515
+	omega median: 179.99
+	omega std   : 5.2603
+	--
+	h mean  : 0.1053
+	h median: 0.0793
+	h std   : 0.8103
+------
+Statistics for: 'T'
+	--
+	phi mean  : -40.6975
+	phi median: -65.9962
+	phi std   : 70.3629
+	--
+	psi mean  : 3.9875
+	psi median: -3.6704
+	psi std   : 50.2396
+	--
+	omega mean  : 179.9644
+	omega median: 179.9872
+	omega std   : 4.5607
+	--
+	h mean  : 0.3274
+	h median: 0.9371
+	h std   : 0.8821
+------
+Statistics for: 'leftH'
+	--
+	phi mean  : 53.3962
+	phi median: 66.1104
+	phi std   : 64.9989
+	--
+	psi mean  : 87.4879
+	psi median: 81.4135
+	psi std   : 75.7051
+	--
+	omega mean  : 180.0442
+	omega median: 180.0565
+	omega std   : 5.7062
+	--
+	h mean  : -0.2211
+	h median: -0.8496
+	h std   : 0.8919
+------
