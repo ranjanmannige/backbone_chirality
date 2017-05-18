@@ -1,0 +1,168 @@
+%% Submissions for peer-review must enable line-numbering 
+%% using the lineno option in the \documentclass command.
+%%
+%% Preprints and camera-ready submissions do not need 
+%% line numbers, and should have this option removed.
+%%
+%% Please note that the line numbering option requires
+%% version 1.1 or newer of the wlpeerj.cls file, and
+%% the corresponding author info requires v1.2
+
+\documentclass[fleqn,10pt]{wlpeerj} % for journal submissions
+%\documentclass[fleqn,10pt]{wlpeerj} % for preprint submissions
+
+%\newcommand{\rr}{${\mathcal{R}}$}
+\usepackage{bbding} %for FiveStarOpen
+\usepackage{changepage} % for adjustwidth
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{upgreek}
+\usepackage[]{fontenc}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{bm}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{ifthen}
+\usepackage{xstring}
+\usepackage{afterpage}
+%\usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks=false, allcolors=blue, pdfborder={0 0 0}]{hyperref}
+\usepackage{comment}
+
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
+\newcommand{\round}[1]{\left \lfloor #1 \right \rceil }
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil }
+\newcommand{\Fig}[1]{Fig.~\ref{#1}}
+%\newcommand{\Fig}[1]{Figure~\ref{#1}}
+\newcommand{\Figs}[1]{Figs.~\ref{#1}}
+%\newcommand{\Figs}[1]{Figures~\ref{#1}}
+\newcommand{\Sec}[1]{Section~\ref{#1}}
+\newcommand{\Secs}[1]{Sections~\ref{#1}}
+\newcommand{\Chap}[1]{Chapter~\ref{#1}}
+\newcommand{\Chaps}[1]{Chapters~\ref{#1}}
+\newcommand{\Tab}[1]{Table~\ref{#1}}
+\newcommand{\Tabs}[1]{Tables~\ref{#1}}
+\newcommand{\Eqn}[1]{Eqn.~\ref{#1}}
+\newcommand{\Eqns}[1]{Eqns.~\ref{#1}}
+\newcommand{\InEqn}[1]{Inequality~(\ref{#1})}
+\newcommand{\InEqns}[1]{Inequalities~(\ref{#1})}
+\newcommand{\Center}[1]{\textcolor{white}{.}\hfill#1\hfill\textcolor{white}{.}}
+\newcommand{\ang}{$\textrm\AA$\xspace}
+\newcommand{\new}[1]{#1}
+\newcommand{\New}[1]{#1}
+\newcommand{\h}{h}
+\newcommand{\cis}{{\em cis}\xspace}
+\newcommand{\trans}{{\em trans}\xspace}
+
+\newcommand{\editorcolor}{red}
+\newcommand{\newcolor}{blue}
+
+\newcommand{\n}[1]{{\color{\newcolor}#1}}
+\newcommand{\editor}[1]{\noindent{\it \color{\editorcolor}#1}}
+\newcommand{\we}{I~}
+
+\newcommand\solidrule[1][1cm]{\rule[0.5ex]{#1}{0.2mm}}
+\newcommand\dotdashedrule{\mbox{%
+  \solidrule[1.5mm]\hspace{0.75mm}\solidrule[0.2mm]\hspace{0.75mm}\solidrule[1.5mm]}}
+\newcommand\dashedrule{\mbox{%
+  \solidrule[1.5mm]\hspace{0.75mm}\solidrule[1.5mm]}}
+\newcommand\dottedrule{\mbox{%
+  \solidrule[0.2mm]\hspace{0.3mm}\solidrule[0.2mm]\hspace{0.3mm}\solidrule[0.2mm]\hspace{0.3mm}\solidrule[0.2mm]\hspace{0.3mm}\solidrule[0.2mm]\hspace{0.3mm}\solidrule[0.2mm]}}
+  
+  
+\usepackage{xspace}
+
+\newcommand{\pname}{\texttt{plotMAP}\xspace}
+\newcommand{\code}[1]{\texttt{#1}\xspace}
+
+\usepackage[cal=cm,scrscaled=1.05]{mathalfa} % This is for \mathcal{}, particularly \mathcal{R}
+\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n} % for boldface mathcal: \mathbfcal{}
+\newcommand{\rr}{$\mathcal{R}$\xspace}
+
+
+\def\kt{k_{\rm B}T}
+
+
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+
+\def\cal#1{\mathcal{#1}}
+\def\eqq#1{Eq.~(\ref{#1})}
+\def\eq#1{(\ref{#1})}
+\def\av#1{\langle #1 \rangle}
+
+\def\f#1{Fig.~\ref{#1}}
+\def\ff#1{Figs.~\ref{#1}}
+
+\def\s#1{Section~\ref{#1}}
+
+\def\c#1{~\cite{#1}}
+
+
+%\newcommand{\c}[1]{\citep{#1}}
+
+\newcommand{\figdir}{./figures}
+
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+
+% \keywords{Protein structure, Backbone Chirality, Backbone Twist}
+
+%\pagenumbering{gobble}
+
+\begin{document}
+
+\flushbottom
+%\maketitle
+%\thispagestyle{empty}
+
+Dear Prof. Wilke,
+
+As before, I thank you and the reviewer for excellent reviews. I hope that these final changes warrant the manuscript's publication in PeerJ. 
+
+Finally, please note that I have just moved from Berkeley Lab (LBNL), and so my present address is: The Multiscale Institute, Redwood City, CA U.S.A.
+
+Sincerely,\\
+Ranjan Mannige
+
+\noindent{\bf Unsolicited changes}
+
+None in this version. 
+
+\editor{\bf Editor's Comments}
+
+\editor{I agree with the reviewer that the manuscript has very much improved but could benefit from one more round of careful proof-reading and copy-editing.}
+
+A careful proof-reading and copy-editing has been completed. The changes to the manuscript are shown in \n{blue} in the tracked PDF manuscript.
+
+\editor{\bf Reviewer 1 (Anonymous)}
+
+\editor{This new revision has extensive changes that aimed to answer the questions of the reviewers. The clarity and exposition has improved. Due to the process of answering questions, the manuscript ended up having, in my opinion, too many subheadings. I suggest to remove some that are not strictly necessary to improve flow.}
+
+The following subheading has been removed: ``How does the amide backbone ($\omega$) change the chirality landscape?''.
+
+\editor{Since many sections were rewritten, I suggest to do a thorough revision checking for typos and vague sentences to make sure the quality of reporting is maintained.}
+
+The manuscript has been checked and rechecked for typos and confusing statements. Changes in blue indicate those corrections in the present tracked manuscript.
+
+\editor{\bf Experimental design}
+
+\editor{I have no further comments, the author has answered my questions satisfactorily.}
+
+\editor{\bf Validity of the findings}
+
+\editor{The author has done a good job clarifying and explaining the limitations and the scope of the results. I think the article has improved substantially in this regard.}
+
+\editor{\bf Comments for the Author}
+
+\editor{The author has made a very good job at updating figures and providing more details on parts that were a bit vague or confused before. I think the manuscript has improved with respect to the previous version.}
+
+\end{document}
+\grid
+\grid

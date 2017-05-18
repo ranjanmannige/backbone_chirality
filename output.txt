@@ -1,0 +1,6 @@
+
+Fig 5b:        	./graphs/chirality_from_theory_trans_step1_chi.*
+Fig 6a(i):     	./graphs/chirality_from_theory_trans_step1_chi.*
+Fig 8a:        	./graphs/chirality_from_theory_trans_step1_chi.*
+Fig 5a (left): 	./graphs/chirality_from_theory_trans_step1_theta.*
+Fig 5a (right):	./graphs/chirality_from_theory_trans_step1_d.*

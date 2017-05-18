@@ -603,7 +603,6 @@ if 1:
 				else:
 					#H  = scipy.ndimage.zoom(H,  6, order=1) # makes for smoother curves (polar   coordinates)
 					#H2 = scipy.ndimage.zoom(H2, 6, order=1) # makes for smoother curves (phi-psi coordinates)
-					
 					levels1 = [0]
 					levels2 = [0]
 					try:
