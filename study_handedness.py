@@ -66,8 +66,7 @@ plt.register_cmap(cmap=cmap)
 # ===================================================================================
 # STARTING WITH THE VARIOUS STUDIES
 
-# rrrrrrrrrrrrrrrrrrrrrrrrr
-if 0:
+if 1:
 	# GENERATING THE VARIOUS STRUCTURES IN FIG 5c
 	output_file.write("\n")
 	
@@ -389,8 +388,7 @@ if 1:
 					)
 
 
-# rrrrrrrrrrrrrrrrrrrrrrrrrrrr
-if 0:
+if 1:
 	# FIG 1c DRAWING LEFT (L) AND RIGHT (D) VERSIONS OF THE ALPHA-HELIX
 	N = 12
 	
